@@ -8,9 +8,10 @@ alias ntup='ssh -p 7822 liang@140.112.202.119'
 alias ntupsys='ssh -p 7822 ntupsys@140.112.202.119'
 
 alias gene='ssh liang@172.16.0.171'
-alias geneR='ssh root@172.16.0.173'
+alias geneR='ssh root@172.16.0.171'
 alias geneG='ssh galaxy@172.16.0.173'
 alias gene173='ssh liang@172.16.0.173'
+alias gene173R='ssh root@172.16.0.173'
 
 alias cad30='ssh -X b98114@cad30.ee.ntu.edu.tw'
 alias cad41='ssh -X b98114@cad41.ee.ntu.edu.tw'
