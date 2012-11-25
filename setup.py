@@ -23,7 +23,7 @@ def linksetup(platform):
 	if platform == 'mac':
 		filepaths.append(os.path.join(currentpath, '.bash_profile'))
 	elif platform in ['centos', 'redhat']:
-		filepaths.append(os.path.join(currentpath, '.bash_profile_centos'))
+		filepaths.append(os.path.join(currentpath, '.bash_profile_cent5'))
 	else:
 		print (msgtype['ERROR'], 'Wrong platform:', platform)
 		return
