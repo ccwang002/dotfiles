@@ -6,4 +6,4 @@ bind b encoding big5 utf8 # convert big5 to utf8
 bind u encoding utf8 utf8
 
 # 設定視窗回捲時可看到的行數
-defscrollback 2048
+defscrollback 10000
