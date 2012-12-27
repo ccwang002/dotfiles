@@ -9,7 +9,7 @@ from time import strftime, localtime    # for logging time
 msgtype = {'WARNING':   termcolor.colored('(Warning)', 'yellow'),
         'ERROR':     termcolor.colored('(Error)', 'red'),
         'NOTICE':    termcolor.colored('\n==>', 'cyan'),
-        'RESULT':    termcolor.colored('\nResult ==>', 'green')}
+        'RESULT':    termcolor.colored('\nResult\n==>', 'green')}
 status = 'with errors'		
 def getNow():
     return strftime('%Y-%m-%d %a %Z %H:%M:%S', localtime())

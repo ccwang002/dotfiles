@@ -12,5 +12,6 @@ Thumbs.db
 # Vim swap files#
 #################
 *.swp
+*.pyc
 
 .netrwhist
