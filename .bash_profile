@@ -15,7 +15,7 @@ fi
 . ~/.nvm/nvm.sh
 
 # homebrew path
-export PATH=/usr/local/bin:/usr/local/share/python:/usr/local/share/python3:/usr/local/share/python3.2:$PATH
+export PATH=/usr/local/bin:/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:$PATH
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"

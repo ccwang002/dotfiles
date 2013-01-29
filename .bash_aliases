@@ -18,9 +18,13 @@ alias cad41='ssh -X b98114@cad41.ee.ntu.edu.tw'
 alias cad28='ssh -X b98114@cad28.ee.ntu.edu.tw'
 
 alias py='python'
+alias ipy='ipython'
 alias py3='python3'
+alias ipy3='ipython3'
 
-alias vi='vim'
+# for pypy
+alias pip-pypy='/usr/local/share/pypy/pip'
+alias ipy-pypy='/usr/local/share/pypy/ipython'
 
 alias javacu='javac -encoding UTF-8'
 alias javau='java -Dfile.encoding=utf8'
