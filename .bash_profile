@@ -30,5 +30,5 @@ fi
 PS1="\[\e[01;33m\]\u@Air\[\e[00m\]:\[\e[01;32m\]\W\[\e[00m\]\$(__git_ps1) \$ "
 
 # perlbrew 
-. ~/perl5/perlbrew/etc/bashrc
+#. ~/perl5/perlbrew/etc/bashrc
 
