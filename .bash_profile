@@ -11,11 +11,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# For Node.js nvm version control
-. ~/.nvm/nvm.sh
+# for Homebrew
+export PATH=/usr/local/bin:$PATH
 
-# homebrew path
-export PATH=/usr/local/bin:/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:$PATH
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -29,6 +27,7 @@ fi
 
 PS1="\[\e[01;33m\]\u@Air\[\e[00m\]:\[\e[01;32m\]\W\[\e[00m\]\$(__git_ps1) \$ "
 
-# perlbrew 
-#. ~/perl5/perlbrew/etc/bashrc
 export PYTHONPATH=~/code/code_in_lab/ngs-scripts:$PYTHONPATH
+
+# Google App Engine
+export PATH=/usr/local/google_appegine:$PATH

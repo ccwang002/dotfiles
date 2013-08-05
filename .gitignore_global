@@ -15,4 +15,9 @@ Thumbs.db
 *.pyc
 *~
 
+# R related #
+#############
+*.Rproj
+*.Rbuildignore
+
 .netrwhist
