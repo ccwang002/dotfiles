@@ -10,6 +10,7 @@ alias mv='mv -i'
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
+
 declare -x LS_COLORS="no=00:fi=00:di=01;36:ln=02;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:"
 
 
@@ -28,8 +29,8 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Setup the bash color
-
 use_color=true
+
 # Set colorful PS1 only on colorful terminals.
 # dircolors --print-database uses its own built-in database
 # instead of using /etc/DIR_COLORS.  Try to use the external file
@@ -44,7 +45,9 @@ match_lhs="$(<${COLORS})"
 
 # for git
 export GIT_SSL_NO_VERIFY=true
-source ~/.git-completion.bash
+if [ -f /etc/bash_completion.d/git ]
+    source /etc/bash_completion/git
+fi
 
 if ${use_color} ; then
     if [[ ${EUID} == 0  ]] ; then
@@ -65,15 +68,3 @@ else
     fi
 fi
 
-export PATH="$HOME/local/bin:$PATH"
-# Path for bowtie
-export PATH="/home/liang/data/miRNA/tool/bowtie-0.12.8:$PATH"
-# Path for blast
-#export PATH=/home/liang/tool/ncbi-blast-2.2.27+/bin:$PATH
-# Path for fastx-toolkit
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-# Path for NCBI SRA Toolkit
-export PATH=/home/liang/tool/sratoolkit.2.2.0-centos_linux64/bin:$PATH
-
-# Path for BLASTDB
-export BLASTDB=/home/liang/data/verifyB:/home/liang/data/verifyC
