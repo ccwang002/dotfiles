@@ -19,5 +19,7 @@ Thumbs.db
 #############
 *.Rproj
 *.Rbuildignore
+.Rproj.user
+.Rhistory
 
 .netrwhist
