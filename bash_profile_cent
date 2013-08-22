@@ -49,14 +49,19 @@ if [ -f /etc/bash_completion.d/git ]; then
     source /etc/bash_completion.d/git
 fi
 
+
+# detect which server we are on
+IP_LAST_DIGIT=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | cut -d. -f4 | awk '{ print $1}'`
+
+
 if ${use_color} ; then
     if [[ ${EUID} == 0  ]] ; then
         PS1="\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] "
     else
         if [ "$TERM" = "screen" ]; then
-            PS1="\[\033[01;35m\](screen:${WINDOW}) \[\033[01;32m\]\u@171\[\033[01;34m\] \w \$\[\033[00m\] "
+            PS1='\[\033[01;35m\](screen:${WINDOW}) \[\033[01;32m\]\u@$IP_LAST_DIGIT\[\033[01;34m\] \w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;34m\]\$\[\033[00m\] '
         else
-            PS1='\[\033[01;32m\]\u@171\[\033[01;34m\] \w \$\[\033[00m\] '
+            PS1='\[\033[01;32m\]\u@$IP_LAST_DIGIT\[\033[01;34m\] \w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;34m\]\$\[\033[00m\] '
         fi
     fi
 else
