@@ -45,8 +45,8 @@ match_lhs="$(<${COLORS})"
 
 # for git
 export GIT_SSL_NO_VERIFY=true
-if [ -f /etc/bash_completion.d/git ]
-    source /etc/bash_completion/git
+if [ -f /etc/bash_completion.d/git ]; then
+    source /etc/bash_completion.d/git
 fi
 
 if ${use_color} ; then
