@@ -16,7 +16,7 @@ set -x PATH /usr/local/bin $PATH
 # Example format: set fish_plugins autojump bundler
 
 # Path to your custom folder (default path is $FISH/custom)
-set fish_custom $HOME/.config/fish
+set fish_custom $HOME/dotfiles/fish
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
@@ -24,6 +24,9 @@ set fish_custom $HOME/.config/fish
 # virtual fish
 . $fish_custom/plugins/virtualfish/virtual.fish
 . $fish_custom/plugins/virtualfish/global_requirements.fish
+
+# Add aliases
+set -x fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 
 # Custom Right Prompt
 function fish_right_prompt
