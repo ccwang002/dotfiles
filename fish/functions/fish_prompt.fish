@@ -88,6 +88,9 @@ function __bobthefish_project_pwd -d 'Print the working directory relative to pr
   echo -n (__liang_pretty_workdir $work_dir)
 end
 
+function __liang_ipaddr_last_digit -d 'Print last digit of IP address'
+  echo -n -s (/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | cut -d. -f4 | awk '{ print $1}')
+end
 
 # ===========================
 # Segment functions
@@ -207,6 +210,19 @@ function __bobthefish_prompt_user -d 'Display actual user if different from $def
   end
 end
 
+function __liang_prompt_user -d 'Display actual user if different from $default_user'
+  if [ "$theme_display_user" = 'yes' ]
+    if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
+      __bobthefish_start_segment $lt_grey $slate_blue
+      if [ (uname) = 'Linux' ]
+        echo -n -s (whoami) '@' (__liang_ipaddr_last_digit) ' '
+      else
+        echo -n -s "OSX "
+      end
+    end
+  end
+end
+
 # TODO: clean up the fugly $ahead business
 function __bobthefish_prompt_git -d 'Display the actual git state'
   set -l dirty   (command git diff --no-ext-diff --quiet --exit-code; or echo -n '*')
@@ -269,8 +285,8 @@ end
 function fish_prompt
   set -g RETVAL $status
   __bobthefish_prompt_status
+  __liang_prompt_user
   __liang_prompt_vf_status
-  __bobthefish_prompt_user
   if __bobthefish_in_git
     __bobthefish_prompt_git
   else
