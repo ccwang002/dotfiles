@@ -1,0 +1,3 @@
+[submodule "virtualfish"]
+	path = fish/plugins/virtualfish
+	url = https://github.com/adambrenecki/virtualfish
