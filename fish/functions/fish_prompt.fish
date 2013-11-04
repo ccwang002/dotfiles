@@ -210,6 +210,13 @@ function __bobthefish_prompt_user -d 'Display actual user if different from $def
   end
 end
 
+function __liang_screen_status -d 'Display screen status'
+  if test (echo $TERM | grep -e 'screen' )
+      __bobthefish_start_segment purple $dk_orange
+      echo -n -s $WINDOW " "
+  end
+end
+
 function __liang_prompt_user -d 'Display actual user if different from $default_user'
   if [ "$theme_display_user" = 'yes' ]
     if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
@@ -285,6 +292,7 @@ end
 function fish_prompt
   set -g RETVAL $status
   __bobthefish_prompt_status
+  __liang_screen_status
   __liang_prompt_user
   __liang_prompt_vf_status
   if __bobthefish_in_git
