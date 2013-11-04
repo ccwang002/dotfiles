@@ -9,7 +9,7 @@ set -x LANG zh_TW.UTF-8
 set -x LC_CTYPE zh_TW.UTF-8
 
 # Update PATH for homebrew
-set -x PATH /usr/local/bin $PATH
+set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
