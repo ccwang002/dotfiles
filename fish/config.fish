@@ -23,6 +23,7 @@ set fish_custom $HOME/dotfiles/fish
 
 # virtual fish
 . $fish_custom/plugins/virtualfish/virtual.fish
+. $fish_custom/plugins/virtualfish/auto_activation.fish
 . $fish_custom/plugins/virtualfish/global_requirements.fish
 
 # Add aliases
