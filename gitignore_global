@@ -23,3 +23,7 @@ Thumbs.db
 .Rhistory
 
 .netrwhist
+
+# VENV #
+########
+.venv
