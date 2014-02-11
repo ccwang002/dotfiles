@@ -16,6 +16,12 @@ set -x PYENV_ROOT /usr/local/opt/pyenv
 set -x PATH $PYENV_ROOT"/bin" $PATH
 status --is-interactive; and . (pyenv init -|psub)
 
+# For pip
+set -x PIP_USE_WHEEL "true"
+set -x PIP_WHEEL_DIR "$HOME/.pip/wheels"
+set -x PIP_FIND_LINKS "$HOME/.pip/wheels"
+set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
 # Example format: set fish_plugins autojump bundler
