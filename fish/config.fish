@@ -11,6 +11,11 @@ set -x LC_CTYPE zh_TW.UTF-8
 # Update PATH for homebrew
 set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 
+# For pyenv
+set -x PYENV_ROOT /usr/local/opt/pyenv
+set -x PATH $PYENV_ROOT"/bin" $PATH
+status --is-interactive; and . (pyenv init -|psub)
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
 # Example format: set fish_plugins autojump bundler
