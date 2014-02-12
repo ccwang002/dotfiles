@@ -14,7 +14,9 @@ set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 # For pyenv
 set -x PYENV_ROOT /usr/local/opt/pyenv
 set -x PATH $PYENV_ROOT"/bin" $PATH
-status --is-interactive; and . (pyenv init -|psub)
+if status --interactive; and type -f pyenv > /dev/null
+    . (pyenv init -|psub)
+end
 
 # For pip
 set -x PIP_USE_WHEEL "true"
