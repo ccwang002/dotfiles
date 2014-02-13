@@ -14,7 +14,7 @@ set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 # For pyenv
 set -x PYENV_ROOT /usr/local/opt/pyenv
 set -x PATH $PYENV_ROOT"/bin" $PATH
-if status --interactive; and type -f pyenv > /dev/null
+if status --is-interactive; and type -f pyenv > /dev/null
     . (pyenv init -|psub)
 end
 
