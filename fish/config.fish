@@ -45,7 +45,7 @@ set -x fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 # Custom Right Prompt
 function fish_right_prompt
     set_color $fish_color_autosuggestion[1]
-    date "+%F (%a) %H:%M %Z" 
+    date "+%F (%a) %H:%M %Z"
     set_color normal
 end
 
