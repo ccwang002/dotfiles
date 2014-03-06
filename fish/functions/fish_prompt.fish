@@ -221,10 +221,13 @@ function __liang_prompt_user -d 'Display actual user if different from $default_
   if [ "$theme_display_user" = 'yes' ]
     if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
       __bobthefish_start_segment $lt_grey $slate_blue
-      if [ (uname) = 'Linux' ]
-        echo -n -s (whoami) '@' (__liang_ipaddr_last_digit) ' '
-      else
-        echo -n -s "OSX "
+      switch (uname)
+        case 'Linux'
+            echo -n -s (whoami) '@' (__liang_ipaddr_last_digit) ' '
+        case 'Darwin'
+            echo -n -s 'OSX @' (__liang_ipaddr_last_digit) ' '
+        case '*'
+            echo -n -s (whoami) '@' (__liang_ipaddr_last_digit) ' '
       end
     end
   end
