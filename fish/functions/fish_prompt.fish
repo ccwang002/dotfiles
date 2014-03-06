@@ -218,16 +218,16 @@ function __liang_screen_status -d 'Display screen status'
 end
 
 function __liang_prompt_user -d 'Display actual user if different from $default_user'
-  if [ "$theme_display_user" = 'yes' ]
-    if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
+  if [ "$theme_display_user" = 'yes' -o -n "$SSH_CLIENT" ]
+    if [ "$USER" != "$default_user" ]
       __bobthefish_start_segment $lt_grey $slate_blue
       switch (uname)
         case 'Linux'
             echo -n -s (whoami) '@' (__liang_ipaddr_last_digit) ' '
         case 'Darwin'
-            echo -n -s 'OSX @' (__liang_ipaddr_last_digit) ' '
+            echo -n -s (hostname) ' '
         case '*'
-            echo -n -s (whoami) '@' (__liang_ipaddr_last_digit) ' '
+            echo -n -s (whoami) '@' (hostname) ' '
       end
     end
   end
