@@ -27,3 +27,7 @@ Thumbs.db
 # VENV #
 ########
 .venv
+
+# IPython Notebook #
+####################
+.ipynb_checkpoints
