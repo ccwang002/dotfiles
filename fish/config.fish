@@ -21,8 +21,6 @@ end
 
 # For pip
 set -x PIP_USE_WHEEL "true"
-set -x PIP_WHEEL_DIR "$HOME/.pip/wheels"
-set -x PIP_FIND_LINKS "$HOME/.pip/wheels"
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 
 
