@@ -89,7 +89,7 @@ function __bobthefish_project_pwd -d 'Print the working directory relative to pr
 end
 
 function __liang_ipaddr_last_digit -d 'Print last digit of IP address'
-  echo -n -s (/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | cut -d. -f4 | awk '{ print $1}')
+  echo -n -s (ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | cut -d: -f2 | cut -d. -f4 | awk '{print $1}')
 end
 
 # ===========================
