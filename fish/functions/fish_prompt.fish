@@ -67,7 +67,12 @@ function __bobthefish_git_branch
     set -l branch (command git show-ref --head -s --abbrev |head -n1 2> /dev/null)
     set ref "$detached_glyph $branch"
   end
-  echo $ref | sed  "s-refs/heads/-$branch_glyph -"
+  # supress branch name on default branch master
+  if [ $ref = 'refs/heads/master' ]
+    echo "$branch_glyph"
+  else
+    echo $ref | sed  "s-refs/heads/-$branch_glyph -"
+  end
 end
 
 function __bobthefish_pretty_parent -d 'Print a parent directory, shortened to fit the prompt'
