@@ -5,8 +5,8 @@ set fish_path $HOME/.oh-my-fish
 set fish_theme bobthefish
 
 # LOCALE
-set -x LANG zh_TW.UTF-8
-set -x LC_CTYPE zh_TW.UTF-8
+set -x LANG en_US.UTF-8
+set -x LC_CTYPE en_US.UTF-8
 
 # Update PATH for homebrew
 set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
@@ -53,7 +53,7 @@ set -x fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 # Custom Right Prompt
 function fish_right_prompt
     set_color $fish_color_autosuggestion[1]
-    date "+%F (%a) %H:%M %Z"
+    date "+%F %a %H:%M"
     set_color normal
 end
 
