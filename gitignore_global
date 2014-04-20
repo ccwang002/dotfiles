@@ -31,3 +31,7 @@ Thumbs.db
 # IPython Notebook #
 ####################
 .ipynb_checkpoints
+
+# Python 3.x #
+##############
+__pycache__
