@@ -95,6 +95,8 @@ end
 
 function __liang_ipaddr_last_digit -d 'Print last digit of IP address'
   if type -f ifconfig > /dev/null
+    echo -n -s (ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | cut -d. -f4 | head -n 1)
+  else
     echo -n -s (/sbin/ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | cut -d. -f4 | head -n 1)
   end
 end
