@@ -57,11 +57,11 @@ set lt_grey    ccc
 # Helper methods
 # ===========================
 
-function __bobthefish_in_git
+function __bobthefish_in_git -d 'Check whether pwd is inside a git repo'
   command git rev-parse --is-inside-work-tree >/dev/null 2>&1
 end
 
-function __bobthefish_git_branch
+function __bobthefish_git_branch -d 'Get the current git branch (or commitish)'
   set -l ref (command git symbolic-ref HEAD 2> /dev/null)
   if [ $status -gt 0 ]
     set -l branch (command git show-ref --head -s --abbrev |head -n1 2> /dev/null)
