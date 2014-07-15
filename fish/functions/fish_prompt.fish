@@ -220,15 +220,12 @@ function __bobthefish_prompt_user -d 'Display actual user if different from $def
 end
 
 function __liang_screen_status -d 'Display screen status'
-  if test (echo $TERM | grep -e 'screen' )
-    if test -n "$STY"
-      # screen session
-      __bobthefish_start_segment purple $dk_orange
-      echo -n -s $WINDOW " "
-    else if test -n "$TMUX"
-      # tmux session
-    end
+  if test -n "$STY"
+    # screen session
+    __bobthefish_start_segment purple $dk_orange
+    echo -n -s $WINDOW " "
   end
+    # for tmux session, test -n "$TMUX"
 end
 
 function __liang_prompt_user -d 'Display actual user if different from $default_user'

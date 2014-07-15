@@ -13,7 +13,7 @@ set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 
 
 # 256 color term
-set -x TERM "screen-256color"
+set -x TERM "xterm-256color"
 
 
  #For pyenv
