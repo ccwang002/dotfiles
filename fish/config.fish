@@ -12,7 +12,11 @@ set -x LC_CTYPE en_US.UTF-8
 set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 
 
-# For pyenv
+# 256 color term
+set -x TERM "screen-256color"
+
+
+ #For pyenv
 set -x PYENV_ROOT /usr/local/opt/pyenv
 set -x PATH $PYENV_ROOT"/bin" $PATH
 if begin; status --is-interactive; and type -f pyenv > /dev/null; end

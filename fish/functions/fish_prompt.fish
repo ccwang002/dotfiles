@@ -221,8 +221,13 @@ end
 
 function __liang_screen_status -d 'Display screen status'
   if test (echo $TERM | grep -e 'screen' )
+    if test -n "$STY"
+      # screen session
       __bobthefish_start_segment purple $dk_orange
       echo -n -s $WINDOW " "
+    else if test -n "$TMUX"
+      # tmux session
+    end
   end
 end
 
