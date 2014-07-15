@@ -57,7 +57,11 @@ set -x fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 # Custom Right Prompt
 function fish_right_prompt
     set_color $fish_color_autosuggestion[1]
-    date "+%F %a %H:%M"
+        if test \( -n "$TMUX" \) -o \( -n "$STY" \)
+            # in tmux or screen
+            date "+%a %H:%M"
+        else
+            date "+%F %a %H:%M"
+        end
     set_color normal
 end
-

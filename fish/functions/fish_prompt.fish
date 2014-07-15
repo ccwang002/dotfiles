@@ -220,12 +220,9 @@ function __bobthefish_prompt_user -d 'Display actual user if different from $def
 end
 
 function __liang_screen_status -d 'Display screen status'
-  if test -n "$STY"
-    # screen session
-    __bobthefish_start_segment purple $dk_orange
-    echo -n -s $WINDOW " "
-  end
-    # for tmux session, test -n "$TMUX"
+  # screen session
+  __bobthefish_start_segment purple $dk_orange
+  echo -n -s $WINDOW " "
 end
 
 function __liang_prompt_user -d 'Display actual user if different from $default_user'
@@ -306,7 +303,9 @@ end
 function fish_prompt
   set -g RETVAL $status
   __bobthefish_prompt_status
-  __liang_screen_status
+  if test -n "$STY"
+    __liang_screen_status
+  end
   __liang_prompt_user
   __liang_prompt_vf_status
   if __bobthefish_in_git
