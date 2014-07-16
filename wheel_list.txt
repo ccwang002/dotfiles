@@ -3,7 +3,6 @@ MarkupSafe
 Pygments
 XlsxWriter
 beautifulsoup4
-decorator
 html5lib
 ipython
 lxml
@@ -12,8 +11,8 @@ nose
 numexpr
 numpy
 numpydoc
-pandas
 flake8
+pandas
 python-dateutil
 pytz
 pyzmq
