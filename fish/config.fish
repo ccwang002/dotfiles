@@ -17,8 +17,8 @@ set -x TERM "xterm-256color"
 
 
  #For pyenv
-set -x PYENV_ROOT /usr/local/opt/pyenv
-set -x PATH $PYENV_ROOT"/bin" $PATH
+set -x PYENV_ROOT "$HOME/.pyenv"
+set -x PATH "$PYENV_ROOT/bin" $PATH
 if begin; status --is-interactive; and type -f pyenv > /dev/null; end
     . (pyenv init -|psub)
 end
