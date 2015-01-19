@@ -1,0 +1,15 @@
+[alias]
+    co = checkout
+    cm = commit
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset-%C(yellow)%d%Creset %s%Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    st = status -sb
+
+[user]
+	name = Liang Bo Wang
+	email = ccwang002@gmail.com
+
+[core]
+    excluesfile = ~/.gitignore_global
+
+[push]
+    default = matching
