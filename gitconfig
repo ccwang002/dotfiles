@@ -9,7 +9,7 @@
 	email = ccwang002@gmail.com
 
 [core]
-    excluesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 
 [push]
     default = matching
