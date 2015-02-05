@@ -1,12 +1,15 @@
 [alias]
     co = checkout
     cm = commit
-    lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%<(12,mtrunc)%an>%Creset' --abbrev-commit
+    lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cd) %C(cyan)<%<(12,mtrunc)%an>%Creset' --abbrev-commit
     st = status -sb
 
+[log]
+    date = relative
+
 [user]
-	name = Liang Bo Wang
-	email = ccwang002@gmail.com
+    name = Liang Bo Wang
+    email = ccwang002@gmail.com
 
 [core]
     excludesfile = ~/.gitignore_global
