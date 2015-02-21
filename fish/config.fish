@@ -28,15 +28,6 @@ set -x PIP_USE_WHEEL "true"
 set -x PIP_WHEEL_DIR "$HOME/.pip/wheel"
 set -x PIP_FIND_LINKS "file://$PIP_WHEEL_DIR"
 
-
-# For rbenv
-set -x RBENV_ROOT /usr/local/opt/rbenv
-# set -x PATH $RBENV_ROOT"/bin" $PATH
-if begin; status --is-interactive; and type -f rbenv > /dev/null; end
-    . (rbenv init -|psub)
-end
-
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
 # Example format: set fish_plugins autojump bundler
