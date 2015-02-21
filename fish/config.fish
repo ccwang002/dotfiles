@@ -16,12 +16,9 @@ set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 set -x TERM "xterm-256color"
 
 
- #For pyenv
+#For pyenv (init at the end of config)
 set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH "$PYENV_ROOT/bin" $PATH
-if begin; status --is-interactive; and type -f pyenv > /dev/null; end
-    . (pyenv init -|psub)
-end
 
 # For pip
 set -x PIP_USE_WHEEL "true"
@@ -56,4 +53,10 @@ function fish_right_prompt
             date "+%F %a %H:%M"
         end
     set_color normal
+end
+
+
+# Init pyenv
+if begin; status --is-interactive; and type -f pyenv > /dev/null; end
+    . (pyenv init -|psub)
 end
