@@ -249,7 +249,14 @@ function __bobthefish_prompt_user -d 'Display actual user if different from $def
   if [ "$theme_display_user" = 'yes' ]
     if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
       __bobthefish_start_segment $__bobthefish_lt_grey $__bobthefish_slate_blue
-      echo -n -s (whoami) '@' (hostname | cut -d . -f 1) ' '
+      # echo -n -s (whoami) '@' (hostname | cut -d . -f 1) ' '
+      ## Make OSX prompt shorter
+      switch (uname)
+        case 'Darwin'
+            echo -n -s (hostname) ' '
+        case '*'
+            echo -n -s (whoami) '@' (hostname | cut -d . -f 1) ' '
+      end
     end
   end
 end
