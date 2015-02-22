@@ -341,12 +341,14 @@ end
 function __bobthefish_prompt_virtualfish -d "Display activated virtual environment (only for virtualfish, virtualenv's activate.fish changes prompt by itself)"
   [ "$theme_display_virtualenv" = 'no' -o -z "$VIRTUAL_ENV" ]; and return
   set -l version_glyph (__bobthefish_virtualenv_python_version)
-  if [ "$version_glyph" ]
-    __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_grey
-    echo -n -s $__bobthefish_virtualenv_glyph $version_glyph
-  end
+  ## The following generate [py]^[ver] > [pyenv]
+  # if [ "$version_glyph" ]
+  #   __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_grey
+  #   echo -n -s $__bobthefish_virtualenv_glyph $version_glyph
+  # end
+  ## Change it to ([pyenv])^[ver]
   __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_grey --bold
-  echo -n -s (basename "$VIRTUAL_ENV") ' '
+  echo -n -s "(" (basename "$VIRTUAL_ENV") ")" $version_glyph ' '
   set_color normal
 end
 
