@@ -85,7 +85,12 @@ function __bobthefish_git_branch -d 'Get the current git branch (or commitish)'
     set -l branch (command git show-ref --head -s --abbrev | head -n1 ^/dev/null)
     set ref "$__bobthefish_detached_glyph $branch"
   end
-  echo $ref | sed  "s#refs/heads/#$__bobthefish_branch_glyph #"
+  # Suppress printing branch name if it is master branch
+  if [ $ref = 'refs/heads/master' ]
+    echo $__bobthefish_branch_glyph
+  else
+    echo $ref | sed "s#refs/heads/#$__bobthefish_branch_glyph #"
+  end
 end
 
 function __bobthefish_hg_branch -d 'Get the current hg branch'
