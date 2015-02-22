@@ -48,6 +48,12 @@ function condactivate -d 'Activate a conda environment' -a cenv
   # https://github.com/conda/conda/issues/473
   set -xg CONDA_DEFAULT_ENV $cenv
 
+  # flag for whether a conda environment has been set
+  set -xg __CONDA_ENV_ACTIVE 'true'
+
+  # skip changing fish_prompt if the theme has better design
+  functions -q __bobthefish_prompt_virtualfish; and return
+
   # set up the prompt so it has the env name in it
   functions -e __original_fish_prompt
   functions -c fish_prompt __original_fish_prompt
@@ -57,9 +63,6 @@ function condactivate -d 'Activate a conda environment' -a cenv
     set_color normal
     __original_fish_prompt
   end
-
-  # flag for whether a conda environment has been set
-  set -xg __CONDA_ENV_ACTIVE 'true'
 end
 
 function deactivate -d 'Deactivate a conda environment'
