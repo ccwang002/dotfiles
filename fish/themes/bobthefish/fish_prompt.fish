@@ -365,7 +365,8 @@ function __bobthefish_prompt_virtualfish -d "Display activated virtual environme
   [ "$theme_display_virtualenv" = 'no' ]; and return
   [ -z "$VIRTUAL_ENV" -a -z "$CONDA_DEFAULT_ENV" ]; and return
   if [ "$VIRTUAL_ENV" -a "$CONDA_DEFAULT_ENV" ]
-    echo 'Warning: Both virtualenv and conda env are set! Please resolve the limbo.'
+    echo 'Warning: Both virtualenv and conda env are set!' >&2
+    echo 'Please resolve the limbo by `vf deactivate` or `deactivate`' >&2
     __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_red --bold
     echo -n -s '(--LIMBO--)' $__bobthefish_superscript_glyph[4] ' '
     set_color normal
