@@ -261,6 +261,12 @@ function __bobthefish_prompt_user -d 'Display actual user if different from $def
   end
 end
 
+function __bobthefish_screen_status -d 'Display screen status'
+  [ -z "$STY" ]; and return   # in a screen
+  __bobthefish_start_segment purple $__bobthefish_dk_orange
+  echo -n -s $WINDOW " "
+end
+
 function __bobthefish_prompt_hg -d 'Display the actual hg state'
   set -l dirty (command hg stat; or echo -n '*')
 
@@ -391,6 +397,7 @@ end
 
 function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
   __bobthefish_prompt_status
+  __bobthefish_screen_status
   __bobthefish_prompt_user
   __bobthefish_prompt_rubies
   __bobthefish_prompt_virtualfish
