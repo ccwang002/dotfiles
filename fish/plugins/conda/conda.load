@@ -2,7 +2,7 @@
 # Ref: http://penandpants.com/2014/02/28/using-conda-environments-and-the-fish-shell/
 
 function __has_conda -d 'Check if current pyenv python has conda.'
-  pyenv which conda ^/dev/null >/dev/null; and return 0
+  pyenv which conda >/dev/null ^&1; and return 0
   echo 'Current pyenv environment is not of miniconda* or anaconda*.'
   return 1
 end
