@@ -42,18 +42,6 @@ set -x PIP_FIND_LINKS "file://$PIP_WHEEL_DIR"
 . $fish_custom/plugins/virtualfish/auto_activation.fish
 . $fish_custom/plugins/virtualfish/global_requirements.fish
 
-# Custom Right Prompt
-function fish_right_prompt
-    set_color $fish_color_autosuggestion[1]
-        if test \( -n "$TMUX" \) -o \( -n "$STY" \)
-            # in tmux or screen
-            date "+%a %H:%M"
-        else
-            date "+%F %a %H:%M"
-        end
-    set_color normal
-end
-
 # Init pyenv
 if begin; status --is-interactive; and type -f pyenv > /dev/null; end
     . (pyenv init -|psub)
