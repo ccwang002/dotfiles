@@ -360,7 +360,17 @@ function __bobthefish_virtualenv_python_version -d 'Get current python version'
 end
 
 function __bobthefish_prompt_virtualfish -d "Display activated virtual environment (only for virtualfish, virtualenv's activate.fish changes prompt by itself)"
-  [ "$theme_display_virtualenv" = 'no' -o -z "$VIRTUAL_ENV" ]; and return
+  # [ "$theme_display_virtualenv" = 'no' -o -z "$VIRTUAL_ENV" ]; and return
+  ## Add conda env support
+  [ "$theme_display_virtualenv" = 'no' ]; and return
+  [ -z "$VIRTUAL_ENV" -a -z "$CONDA_DEFAULT_ENV" ]; and return
+  if [ "$VIRTUAL_ENV" -a "$CONDA_DEFAULT_ENV" ]
+    echo 'Warning: Both virtualenv and conda env are set! Please resolve the limbo.'
+    __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_red --bold
+    echo -n -s '(--LIMBO--)' $__bobthefish_superscript_glyph[4] ' '
+    set_color normal
+    return
+  end
   set -l version_glyph (__bobthefish_virtualenv_python_version)
   ## The following generate [py]^[ver] > [pyenv]
   # if [ "$version_glyph" ]
@@ -369,7 +379,7 @@ function __bobthefish_prompt_virtualfish -d "Display activated virtual environme
   # end
   ## Change it to ([pyenv])^[ver]
   __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_grey --bold
-  echo -n -s "(" (basename "$VIRTUAL_ENV") ")" $version_glyph ' '
+  echo -n -s "(" (basename "$VIRTUAL_ENV$CONDA_DEFAULT_ENV") ")" $version_glyph ' '
   set_color normal
 end
 
