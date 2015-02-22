@@ -14,7 +14,7 @@ function condalist -d 'List conda environments.'
   end
 end
 
-function condactivate -d 'Activate a conda environment' -a cenv
+function condaactivate -d 'Activate a conda environment' -a cenv
   __has_conda; or return 1
   if test -z $cenv
     echo 'Usage: condactivate <env name>'
@@ -84,7 +84,7 @@ end
 
 # aliases so condactivate and deactivate can have shorter names
 function ca -d 'Activate a conda environment'
-  condactivate $argv
+  condaactivate $argv
 end
 
 function cda -d 'Deactivate a conda environment'
@@ -93,5 +93,5 @@ end
 
 
 # complete conda environment names when activating
-complete -c condactivate -xA -a "(condalist)"
+complete -c condaactivate -xA -a "(condalist)"
 complete -c ca -xA -a "(condalist)"
