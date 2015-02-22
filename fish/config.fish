@@ -14,6 +14,10 @@ set fish_plugins conda
 
 # Theme
 set fish_theme bobthefish
+set -g theme_display_virtualenv yes
+set -g theme_display_hg yes
+set -g theme_display_user yes
+set -g default_user liang
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
