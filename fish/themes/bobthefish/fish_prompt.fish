@@ -38,7 +38,7 @@ set __bobthefish_bg_job_glyph            '% '
 set __bobthefish_hg_glyph                \u263F
 
 # Python glyphs
-set __bobthefish_superscript_glyph       \u00B9 \u00B2 \u00B3
+set __bobthefish_superscript_glyph       \u00B9 \u00B2 \u00B3 \u02C0
 set __bobthefish_virtualenv_glyph        \u25F0
 set __bobthefish_pypy_glyph              \u1D56
 
@@ -333,6 +333,8 @@ function __bobthefish_virtualenv_python_version -d 'Get current python version'
       echo $__bobthefish_superscript_glyph[3]
     case 'pypy*'
       echo $__bobthefish_pypy_glyph
+    case '*'
+      echo $__bobthefish_superscript_glyph[4]
   end
 end
 
