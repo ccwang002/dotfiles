@@ -98,6 +98,11 @@ function __bobthefish_pretty_parent -d 'Print a parent directory, shortened to f
   echo -n (dirname $argv[1]) | sed -e 's#/private##' -e "s#^$HOME#~#" -e 's#/\(\.\{0,1\}[^/]\)\([^/]*\)#/\1#g' -e 's#/$##'
 end
 
+# Added
+function __bobthefish_pretty_workdir -d 'Print shortened work_dir'
+  echo -n -s $argv[1] | sed -e 's#\(\.\{0,1\}[^/]\)\([^/]*\)/#\1/#g' -e 's#/$##'
+end
+
 function __bobthefish_git_project_dir -d 'Print the current git project base directory'
   [ "$theme_display_git" = 'no' ]; and return
   command git rev-parse --show-toplevel ^/dev/null
@@ -116,7 +121,10 @@ function __bobthefish_hg_project_dir -d 'Print the current hg project base direc
 end
 
 function __bobthefish_project_pwd -d 'Print the working directory relative to project root'
-  echo "$PWD" | sed -e "s#$argv[1]##g" -e 's#^/##'
+  ## Inject by __bobthefish_pretty_workdir
+  # echo "$PWD" | sed -e "s#$argv[1]##g" -e 's#^/##'
+  set -l project_dir (echo "$PWD" | sed -e "s#$argv[1]##g" -e 's#^/##')
+  echo (__bobthefish_pretty_workdir $project_dir)
 end
 
 
