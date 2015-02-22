@@ -2,27 +2,20 @@
 # Ref: http://penandpants.com/2014/02/28/using-conda-environments-and-the-fish-shell/
 
 function __has_conda -d 'Check if current pyenv python has conda.'
-  if pyenv which conda 2> /dev/null 1> /dev/null
-    return 0
-  else
-    echo 'Current pyenv environment is not of miniconda* or anaconda*.'
-    return 1
-  end
+  pyenv which conda ^/dev/null >/dev/null; and return 0
+  echo 'Current pyenv environment is not of miniconda* or anaconda*.'
+  return 1
 end
 
 function condalist -d 'List conda environments.'
-  if not __has_conda
-    return 1
-  end
+  __has_conda; or return 1
   for dir in (ls (pyenv prefix)/envs)
     echo $dir
   end
 end
 
 function condactivate -d 'Activate a conda environment' -a cenv
-  if not __has_conda
-    return 1
-  end
+  __has_conda; or return 1
   if test -z $cenv
     echo 'Usage: condactivate <env name>'
     return 1
