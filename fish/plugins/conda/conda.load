@@ -45,7 +45,7 @@ function condactivate -d 'Activate a conda environment' -a cenv
   end
 
   # save the current path
-  set -xg DEFAULT_PATH $PATH
+  set -xg __original_path $PATH
 
   # put the condabin directory at the front of the PATH
   set -xg PATH $condabin $PATH
@@ -72,8 +72,8 @@ end
 function deactivate -d 'Deactivate a conda environment'
   if set -q __CONDA_ENV_ACTIVE
     # set PATH back to its default before activating the conda env
-    set -xg PATH $DEFAULT_PATH
-    set -e DEFAULT_PATH
+    set -xg PATH $__original_path
+    set -e __original_path
 
     # unset this so that conda behaves according to its default behavior
     set -e CONDA_DEFAULT_ENV
