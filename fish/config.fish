@@ -30,7 +30,9 @@ set -x LC_CTYPE en_US.UTF-8
 set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
 
 # 256 color term
-set -x TERM "xterm-256color"
+# See Arch wiki: https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
+# Usually is a bad idea to set $TERM in config instead let terminal to decide
+# set -x TERM "xterm-256color"
 
 #For pyenv (init at the end of config)
 set -x PYENV_ROOT "$HOME/.pyenv"
