@@ -21,6 +21,7 @@ symlink_settings = '''\
 ~/.tmux.conf                    tmux.conf
 ~/.ctags                        ctags
 ~/.config/fish/config.fish      fish/config.fish
+~/.config/mpv/input.conf        mpv/input.conf
 '''
 
 
