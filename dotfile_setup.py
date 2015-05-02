@@ -18,6 +18,7 @@ symlink_settings = '''\
 ~/.gitconfig                    gitconfig
 ~/.gitignore_global             gitignore_global
 ~/.screenrc                     screenrc
+~/.inputrc                      inputrc
 ~/.tmux.conf                    tmux.conf
 ~/.ctags                        ctags
 ~/.config/fish/config.fish      fish/config.fish
