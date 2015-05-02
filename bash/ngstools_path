@@ -1,7 +1,0 @@
-echo "======== Linking NGSTools Path ========"
-
-# NCBI SRA Toolkit
-echo ">>> Link NCBI SRA Toolkit" 
-PATH_NCBI_SRA_TOOLKIT="/data/NGSTools/sratoolkit.2.3.2-5-centos_linux64/bin"
-export PATH=$PATH:$PATH_NCBI_SRA_TOOLKIT
-
