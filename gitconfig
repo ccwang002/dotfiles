@@ -13,6 +13,7 @@
 
 [core]
     excludesfile = ~/.gitignore_global
+    quotepath = false
 
 [push]
     default = matching
