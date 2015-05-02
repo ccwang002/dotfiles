@@ -28,7 +28,7 @@ symlink_settings = '''\
 
 def main():
     for setting_line in symlink_settings.splitlines():
-        dest_pth, src_pth = setting_line.rstrip().split()
+        dest_pth, src_pth = setting_line.rstrip().split(maxsplit=1)
         dest = Path(op.expanduser(dest_pth))
         src = Path(src_pth).resolve()
         print('Linking', dest, '->', src)
