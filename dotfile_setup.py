@@ -23,6 +23,7 @@ symlink_settings = '''\
 ~/.ctags                        ctags
 ~/.config/fish/config.fish      fish/config.fish
 ~/.config/mpv/input.conf        mpv/input.conf
+~/.Rprofile                     Rprofile
 '''
 
 
