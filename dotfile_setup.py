@@ -15,16 +15,16 @@ import os.path as op
 from pathlib import Path
 
 symlink_settings = '''\
+~/.config/fish/config.fish      fish/config.fish
+~/.ctags                        ctags
+~/.editrc                       editrc
 ~/.gitconfig                    gitconfig
 ~/.gitignore_global             gitignore_global
-~/.screenrc                     screenrc
-~/.inputrc                      inputrc
-~/.editrc                       editrc
-~/.tmux.conf                    tmux.conf
-~/.ctags                        ctags
-~/.config/fish/config.fish      fish/config.fish
 ~/.config/mpv/input.conf        mpv/input.conf
+~/.inputrc                      inputrc
 ~/.Rprofile                     Rprofile
+~/.screenrc                     screenrc
+~/.tmux.conf                    tmux.conf
 '''
 
 
