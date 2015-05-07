@@ -1,7 +1,8 @@
 [alias]
     co = checkout
     cm = commit
-    lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cd) %C(cyan)<%<(12,mtrunc)%an>%Creset' --abbrev-commit
+    lg = log --color --graph --all --abbrev-commit \
+        --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %Cgreen(%cd) %C(cyan)<%<(12,mtrunc)%an>%Creset'
     st = status -sb
 
 [log]
