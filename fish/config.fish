@@ -7,13 +7,7 @@ set fish_custom $HOME/dotfiles/fish
 # Set custom fish functions which is not part of plugins
 set fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
-# Custom plugins may be added to #FISH/custom/plugins
-# Example format: set fish_plugins autojump bundler
-set fish_plugins conda
-
-# Theme
-set fish_theme bobthefish
+# Theme settings
 set -g theme_display_virtualenv yes
 set -g theme_display_hg yes
 set -g theme_display_user yes
@@ -21,6 +15,12 @@ set -g default_user liang
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
+# Custom plugins may be added to #FISH/custom/plugins
+# Actually load the themes and plugings
+Theme 'bobthefish'
+Plugin 'conda'
 
 # LOCALE
 set -x LANG en_US.UTF-8
