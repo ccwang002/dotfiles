@@ -11,6 +11,7 @@ set fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 set -g theme_display_virtualenv yes
 set -g theme_display_hg yes
 set -g theme_display_user yes
+set -g theme_display_ruby no
 set -g default_user liang
 
 # Load oh-my-fish configuration.
