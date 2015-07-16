@@ -28,7 +28,7 @@ set -x LANG en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 
 # Update PATH for homebrew
-set -x PATH $HOME/.cabal/bin /usr/local/bin $PATH
+set -x PATH $HOME/.cabal/bin /usr/local/sbin /usr/local/bin $PATH
 
 # 256 color term
 # See Arch wiki: https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
