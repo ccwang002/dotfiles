@@ -17,7 +17,6 @@ Thumbs.db
 
 # R related #
 #############
-*.Rproj
 *.Rbuildignore
 .Rproj.user
 .Rhistory
