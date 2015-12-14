@@ -20,6 +20,8 @@ symlink_settings = '''\
 ~/.editrc                       editrc
 ~/.gitconfig                    gitconfig
 ~/.gitignore_global             gitignore_global
+~/.hgrc                         hgrc
+~/.hgignore_global              hgignore_global
 ~/.config/mpv/input.conf        mpv/input.conf
 ~/.inputrc                      inputrc
 ~/.Rprofile                     Rprofile
