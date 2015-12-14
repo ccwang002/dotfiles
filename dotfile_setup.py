@@ -11,7 +11,6 @@ Destination         Source under $PWD
 
 Unexisted folder will be created (but may fail).
 """
-import os.path as op
 from pathlib import Path
 
 symlink_settings = '''\
@@ -33,7 +32,12 @@ symlink_settings = '''\
 def main():
     for setting_line in symlink_settings.splitlines():
         dest_pth, src_pth = setting_line.rstrip().split(maxsplit=1)
-        dest = Path(op.expanduser(dest_pth))
+        try:
+            # For Python 3.5+
+            dest = Path(dest_pth).expanduser()
+        except AttributeError:
+            import os.path as op
+            dest = Path(op.expanduser(dest_pth))
         src = Path(src_pth).resolve()
         print('Linking', dest, '->', src)
         if dest.exists():
