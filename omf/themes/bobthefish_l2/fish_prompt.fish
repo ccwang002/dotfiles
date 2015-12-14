@@ -95,17 +95,17 @@ end
 
 function __bobthefish_hg_branch -d 'Get the current hg branch'
   set -l branch (command hg branch ^/dev/null)
-  set -l book " @ "(command hg book | grep \* | cut -d\  -f3)
-  echo "$__bobthefish_branch_glyph $branch$book"
+  set -l book (command hg book | grep \* | cut -d\  -f3)
+  echo "$__bobthefish_branch_glyph $branch @ $book"
 end
 
-function __bobthefish_pretty_parent -d 'Print a parent directory, shortened to fit the prompt'
-  echo -n (dirname $argv[1]) | sed -e 's#/private##' -e "s#^$HOME#~#" -e 's#/\(\.\{0,1\}[^/]\)\([^/]*\)#/\1#g' -e 's#/$##'
+function __bobthefish_pretty_parent -a current_dir -d 'Print a parent directory, shortened to fit the prompt'
+  echo -n (dirname $current_dir) | sed -e 's#/private##' -e "s#^$HOME#~#" -e 's#/\(\.\{0,1\}[^/]\)\([^/]*\)#/\1#g' -e 's#/$##'
 end
 
 # Added
-function __bobthefish_pretty_workdir -d 'Print shortened work_dir'
-  echo -n -s $argv[1] | sed -e 's#\(\.\{0,1\}[^/]\)\([^/]*\)/#\1/#g' -e 's#/$##'
+function __bobthefish_pretty_workdir -a current_dir -d 'Print shortened work_dir'
+  echo -n -s $current_dir | sed -e 's#\(\.\{0,1\}[^/]\)\([^/]*\)/#\1/#g' -e 's#/$##'
 end
 
 function __bobthefish_git_project_dir -d 'Print the current git project base directory'
@@ -125,10 +125,10 @@ function __bobthefish_hg_project_dir -d 'Print the current hg project base direc
   end
 end
 
-function __bobthefish_project_pwd -d 'Print the working directory relative to project root'
+function __bobthefish_project_pwd -a current_dir -d 'Print the working directory relative to project root'
   ## Inject by __bobthefish_pretty_workdir
   # echo "$PWD" | sed -e "s#$argv[1]##g" -e 's#^/##'
-  set -l project_dir (echo "$PWD" | sed -e "s#$argv[1]##g" -e 's#^/##')
+  set -l project_dir (echo "$PWD" | sed -e "s#$current_dir##g" -e 's#^/##')
   echo (__bobthefish_pretty_workdir $project_dir)
 end
 
@@ -164,8 +164,8 @@ function __bobthefish_start_segment -d 'Start a prompt segment'
   set __bobthefish_current_bg $bg
 end
 
-function __bobthefish_path_segment -d 'Display a shortened form of a directory'
-  if [ -w "$argv[1]" ]
+function __bobthefish_path_segment -a current_dir -d 'Display a shortened form of a directory'
+  if [ -w "$current_dir" ]
     __bobthefish_start_segment $__bobthefish_dk_grey $__bobthefish_med_grey
   else
     __bobthefish_start_segment $__bobthefish_dk_red $__bobthefish_lt_red
@@ -174,15 +174,15 @@ function __bobthefish_path_segment -d 'Display a shortened form of a directory'
   set -l directory
   set -l parent
 
-  switch "$argv[1]"
+  switch "$current_dir"
     case /
       set directory '/'
     case "$HOME"
       set directory '~'
     case '*'
-      set parent    (__bobthefish_pretty_parent "$argv[1]")
+      set parent    (__bobthefish_pretty_parent "$current_dir")
       set parent    "$parent/"
-      set directory (basename "$argv[1]")
+      set directory (basename "$current_dir")
   end
 
   [ "$parent" ]; and echo -n -s "$parent"
@@ -217,8 +217,7 @@ function __bobthefish_prompt_status -d 'Display symbols for a non zero exit stat
   end
 
   # if superuser (uid == 0)
-  set -l uid (id -u $USER)
-  if [ $uid -eq 0 ]
+  if [ (id -u $USER) -eq 0 ]
     set superuser $__bobthefish_superuser_glyph
   end
 
@@ -226,8 +225,6 @@ function __bobthefish_prompt_status -d 'Display symbols for a non zero exit stat
   if [ (jobs -l | wc -l) -gt 0 ]
     set bg_jobs $__bobthefish_bg_job_glyph
   end
-
-  set -l status_flags "$nonzero$superuser$bg_jobs"
 
   if [ "$nonzero" -o "$superuser" -o "$bg_jobs" ]
     __bobthefish_start_segment fff 000
@@ -272,7 +269,7 @@ function __bobthefish_screen_status -d 'Display screen status'
   echo -n -s $WINDOW " "
 end
 
-function __bobthefish_prompt_hg -d 'Display the actual hg state'
+function __bobthefish_prompt_hg -a current_dir -d 'Display the actual hg state'
   set -l dirty (command hg stat; or echo -n '*')
 
   set -l flags "$dirty"
@@ -285,7 +282,7 @@ function __bobthefish_prompt_hg -d 'Display the actual hg state'
     set flag_fg fff
   end
 
-  __bobthefish_path_segment $argv[1]
+  __bobthefish_path_segment $current_dir
 
   __bobthefish_start_segment $flag_bg $flag_fg
   echo -n -s $__bobthefish_hg_glyph ' '
@@ -294,7 +291,7 @@ function __bobthefish_prompt_hg -d 'Display the actual hg state'
   echo -n -s (__bobthefish_hg_branch) $flags ' '
   set_color normal
 
-  set -l project_pwd  (__bobthefish_project_pwd $argv[1])
+  set -l project_pwd  (__bobthefish_project_pwd $current_dir)
   if [ "$project_pwd" ]
     if [ -w "$PWD" ]
       __bobthefish_start_segment 333 999
@@ -306,13 +303,45 @@ function __bobthefish_prompt_hg -d 'Display the actual hg state'
   end
 end
 
-function __bobthefish_prompt_git -d 'Display the actual git state'
+function __bobthefish_prompt_git  -d 'Display the actual git state'
   set -l dirty   (command git diff --no-ext-diff --quiet --exit-code; or echo -n '*')
   set -l staged  (command git diff --cached --no-ext-diff --quiet --exit-code; or echo -n '~')
   set -l stashed (command git rev-parse --verify --quiet refs/stash >/dev/null; and echo -n '$')
-  set -l ahead   (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0) nextfile} END {if (a > 0 && b > 0) print "±"; else if (a > 0) print "+"; else if (b > 0) print "-"}')
+  # set -l ahead   (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0 && b > 0) nextfile} END {if (a > 0 && b > 0) print "±"; else if (a > 0) print "+"; else if (b > 0) print "-"}')
 
-  set -l new (command git ls-files --other --exclude-standard);
+  set -l os
+  set -l commits (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null; set os $status)
+  set -l count
+  set -l behindCount
+  set -l aheadCount
+  set -l ahead
+
+  if test $os -eq 0
+    set behindCount (count (for arg in $commits; echo $arg; end | grep '^<'))
+    set aheadCount (count (for arg in $commits; echo $arg; end | grep -v '^<'))
+    set count "$behindCount	$aheadCount"
+  else
+    set count
+  end
+
+  switch "$count"
+    case '' # no upstream
+      echo "no upstream"
+    case "0	0" # equal to upstream
+      set ahead ""
+    case "0	*" # ahead of upstream
+      set ahead "↑$aheadCount"
+    case "*	0" # behind upstream
+      set ahead "↓$behindCount"
+    case '*' # diverged from upstream
+      set ahead "↑$aheadCount↓$behindCount"
+  end
+  if test -n "$count" -a -n "$name"
+    set ahead (command git rev-parse --abbrev-ref "$upstream" ^/dev/null)
+    echo "else $ahead"
+  end
+
+  set -l new (command git ls-files --other --exclude-standard --directory);
   [ "$new" ]; and set new '…'
 
   set -l flags   "$dirty$staged$stashed$ahead$new"
@@ -330,7 +359,7 @@ function __bobthefish_prompt_git -d 'Display the actual git state'
 
   __bobthefish_path_segment $argv[1]
 
-  __bobthefish_start_segment $flag_bg $flag_fg --bold
+  __bobthefish_start_segment $flag_bg $flag_fg
   echo -n -s (__bobthefish_git_branch) $flags ' '
   set_color normal
 

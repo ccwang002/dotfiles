@@ -14,7 +14,7 @@ Unexisted folder will be created (but may fail).
 from pathlib import Path
 
 symlink_settings = '''\
-~/.config/fish/config.fish      fish/config.fish
+~/.config/omf                   omf
 ~/.ctags                        ctags
 ~/.editrc                       editrc
 ~/.gitconfig                    gitconfig

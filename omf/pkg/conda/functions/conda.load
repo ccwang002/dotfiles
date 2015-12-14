@@ -1,6 +1,3 @@
-# Helpers for conda setting
-# Ref: http://penandpants.com/2014/02/28/using-conda-environments-and-the-fish-shell/
-
 function __has_conda -d 'Check if current pyenv python has conda.'
   pyenv which conda >/dev/null ^&1; and return 0
   echo 'Current pyenv environment is not of miniconda* or anaconda*.'
@@ -75,9 +72,10 @@ function deactivate -d 'Deactivate a conda environment'
     set -e CONDA_DEFAULT_ENV
 
     # reset to the original prompt
+    functions -q __bobthefish_prompt_virtualfish; and return
     functions -e fish_prompt
+    functions -c __original_fish_prompt fish_prompt
     functions -e __original_fish_prompt
-    set -e __CONDA_ENV_ACTIVE
   end
 end
 
