@@ -17,6 +17,7 @@ symlink_settings = '''\
 ~/.config/omf                   omf
 ~/.ctags                        ctags
 ~/.editrc                       editrc
+~/.editorconfig                 editorconfig
 ~/.gitconfig                    gitconfig
 ~/.gitignore_global             gitignore_global
 ~/.hgrc                         hgrc
