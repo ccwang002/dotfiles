@@ -9,8 +9,8 @@
     date = relative
 
 [user]
-    name = Liang Bo Wang
-    email = ccwang002@gmail.com
+    name = Liang-Bo Wang
+    email = me@liang2.tw
 
 [core]
     excludesfile = ~/.gitignore_global
