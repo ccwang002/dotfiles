@@ -23,6 +23,7 @@ symlink_settings = '''\
 ~/.hgrc                         hgrc
 ~/.hgignore_global              hgignore_global
 ~/.config/mpv/input.conf        mpv/input.conf
+~/.config/mpv/mpv.conf          mpv/mpv.conf
 ~/.inputrc                      inputrc
 ~/.Rprofile                     Rprofile
 ~/.screenrc                     screenrc
