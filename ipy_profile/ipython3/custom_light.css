@@ -467,27 +467,12 @@ div.prompt.output_prompt {
     padding-bottom: 1em;
 }
 div.out_prompt_overlay.prompt {
-    font-family: 'Hack', monospace;
-    font-weight: bold;
-    font-size: 9.5pt;
-    width: 1em;
-    margin-bottom: 8px;
-    background-color: #ffffff;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
+    border-radius: 0px;
 }
 div.out_prompt_overlay.prompt:hover {
-    font-family: 'Hack', monospace;
-    font-weight: bold;
-    font-size: 9.5pt;
-    width: 1em;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    background-color: #ffffff;
-    box-shadow: #e2e2e2 2px 2px 6px 4px inset;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
+    background-color: #f2f2f2;
+    border-right: 2px solid rgba(240, 147, 43, .4);
+    box-shadow: none;
 }
 
 div.output_wrapper {
@@ -518,4 +503,7 @@ div.output_subarea {
     box-flex: 1;
     flex: 1;
     max-width: calc(100% - 14ex);
+}
+div.output_scroll {
+    box-shadow: none;
 }
