@@ -194,6 +194,10 @@ body {
 #header .header-bar {
     background: #f9f9f9;
 }
+#maintoolbar {
+    display: none;
+}
+
 /* text in output area (i.e. print some_list) */
 div.output_html {color: #1e2429;}
 
