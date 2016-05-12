@@ -6,7 +6,21 @@
 body {background-color: #f9f9f9;}
 
 a {color: #303030; font-family: 'Helvetica', sans-serif; }
-div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt, div.CodeMirror pre {font-family: 'Inconsolata', 'Hack', monospace; font-size: 12pt;}
+div#notebook,
+div.CodeMirror,
+div.output_area pre,
+div.output_wrapper,
+div.prompt,
+div.CodeMirror pre,
+.completions,
+.completions select,
+.ipython_tooltip,
+#tooltip pre,
+#pager pre,
+pre {
+    font-family: 'Inconsolata', 'Hack', monospace;
+    font-size: 12pt;
+}
 
 /* Hiding the ipython log */
 div#ipython_notebook {display: none;}
