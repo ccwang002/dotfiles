@@ -387,7 +387,6 @@ div#tooltip.ipython_tooltip {
 div.tooltiptext.bigtooltip {
     overflow: auto;
     height: 400px;
-    width: 900px;
 }
 
 span.ansiblack {color: #2b303b;}
