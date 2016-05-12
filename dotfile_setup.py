@@ -14,6 +14,10 @@ Unexisted folder will be created (but may fail).
 from pathlib import Path
 
 symlink_settings = '''\
+~/.config/mpv/input.conf        mpv/input.conf
+~/.config/mpv/mpv.conf          mpv/mpv.conf
+~/.config/mpv/scripts/autoload.lua  mpv/scripts/autoload.lua
+~/.config/mpv/scripts/stats.lua     mpv/scripts/stats.lua
 ~/.config/omf                   omf
 ~/.ctags                        ctags
 ~/.editrc                       editrc
@@ -22,11 +26,8 @@ symlink_settings = '''\
 ~/.gitignore_global             gitignore_global
 ~/.hgrc                         hgrc
 ~/.hgignore_global              hgignore_global
-~/.config/mpv/input.conf        mpv/input.conf
-~/.config/mpv/mpv.conf          mpv/mpv.conf
-~/.config/mpv/scripts/autoload.lua  mpv/scripts/autoload.lua
-~/.config/mpv/scripts/stats.lua     mpv/scripts/stats.lua
 ~/.inputrc                      inputrc
+~/.jupyter/custom/custom.css    ipy_profile/ipython3/custom_light.css
 ~/.Rprofile                     Rprofile
 ~/.screenrc                     screenrc
 ~/.tmux.conf                    tmux.conf
