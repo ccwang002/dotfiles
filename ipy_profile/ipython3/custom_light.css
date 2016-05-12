@@ -6,86 +6,107 @@
 body {background-color: #f9f9f9;}
 
 a {color: #303030; font-family: 'Helvetica', sans-serif; }
-div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt, div.CodeMirror pre {font-family:'Inconsolata', monospace; font-size: 12pt;}
+div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt, div.CodeMirror pre {font-family:'Hack', monospace; font-size: 11pt;}
 
 /* Hiding the ipython log */
-/* div#ipython_notebook {display: none;} */
-
+div#ipython_notebook {display: none;}
 
 /* INTRO PAGE */
-.toolbar_info {color: #4c4c4c; font-size: 12pt; border: 0; font-family: 'Helvetica', sans-serif; text-shadow: none !important; }
+.toolbar_info {color: #2c2c2c; font-size: 12pt; border: 0; font-family: 'Helvetica', sans-serif; text-shadow: none !important; }
 .list_container {color: #4c4c4c; font-size: 12pt; border: 0; font-family: 'Helvetica', sans-serif;text-shadow: none !important; }
-.breadcrumb>li {text-shadow:0 0px 0; color:#4c4c4c; font-family: 'Helvetica', sans-serif; font-size: 12pt}
+.breadcrumb>li {text-shadow:0 0px 0; color:#2c2c2c; font-family: 'Helvetica', sans-serif; font-size: 12pt}
 .list_container a {color: #4c4c4c; font-family: 'Helvetica', sans-serif; font-size: 12pt; border: 0; text-shadow: none !important; }
-
-.item_icon {color: #ee8713;}
-div.list_container a:hover {color: #ee8713;}
-div#tree-selector.btn-group.dropdown {
-      background-color: rgba(184, 184, 184, 0.10);
-      background: rgba(184, 184, 184, 0.10);
+.item_icon {color: #2c85f7;}
+.running_notebook_icon:before {
+    color: #ee8713 !important;
 }
-.btn-group>.btn+.dropdown-toggle {
-    padding-left: 8px;
-    padding-right: 8px;
+.item_buttons .running-indicator {
+    padding-top: 4px;
+    color: #ee8713;
+}
+
+/*<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>
+*****************************************
+COMMENT THIS LINE OUT TO RESTORE TOOLBAR
+*****************************************
+<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>> */
+div#maintoolbar {display: none !important;}
+
+div.list_container a:hover {color: #2c2c2c;}
+
+.list_header {
+    font-weight: normal;
+    background-color: #ececec;
+    color: #4c4c4c;
 }
 div.list_container :hover {
-    background-color: rgba(184, 184, 184, 0.05);
-    color: #3a3a3a;
+    background: #ececec;
+    color: #2c2c2c;
 }
-div.notebook_list_header {
-    background: rgba(184, 184, 184, 0.05);
-}
+
 .dropdown-menu {
-    background-color: #ececed;
-    background: #ececed;
-    border: thin solid #dbdbdb;
+    border: 2px solid rgba(184, 184, 184, 0.25);
+    background-color: #efefef;
+    background: #efefef;
     box-shadow: none;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: none;
     list-style: outside none none;
     font-size: 12pt;
     text-align: left;
+    vertical-align: center;
 }
 .dropdown-menu:hover{
-    background-color: #ececed;
-    border: thin solid #dbdbdb;
+    background-color: #efefef;
+    border: 2px solid rgba(184, 184, 184, 0.40);
     box-shadow: none;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding: none;
+    vertical-align: center;
 }
 .dropdown-header {
     display: block;
-    padding: 3px 20px;
+    padding: 5px 15px;
     font-size: 12pt;
-    line-height: 1.42857;
-    color: #2c2c2c;
+    line-height: 1.35;
+    color: #4c4c4c;
     text-decoration: underline;
+    text-decoration-color: rgba(184, 184, 184, 0.40);
     white-space: nowrap;
 }
 .dropdown-menu > li > a {
+    font-size: 12pt;
+    border: 1px solid #efefef;
     display: block;
     padding: none;
     clear: both;
-    background-color: #ececed;
-    background: #ececed;
     background-clip: padding-box;
     font-weight: normal;
-    line-height: 1.42857;
-    color: #2c2c2c;
+    line-height: 1.35;
+    color: #4c4c4c;
     white-space: nowrap;
+    background-color: #efefef;
+    background: #efefef;
 }
 .dropdown-menu > li > a:hover {
+    font-size: 12pt;
+    border: 1px solid #ededed;
     background-clip: padding-box;
-    color: #000000;
+    color: #2c2c2c;
     padding: none;
-    background: #dbdbdb;
+    display: block;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.35;
+    white-space: nowrap;
+    background: #ededed;
+    background-color: rgba(184, 184, 184, 0.40);
 }
 .dropdown-menu .divider {
-    height: 1px;
-    margin: 8px 0px;
+    height: 2px;
+    margin: 3px 0px;
     overflow: hidden;
     background-color: #dddddd;
 }
+
 .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
     color: #aaaaaa;
 }
@@ -153,16 +174,12 @@ body {
     color: #ee8713;
 
 }
-.CodeMirror pre {
-  font-family: 'Inconsolata', monospace;
-  font-size: 13pt;
-}
-
 .notebook_app {
     background-color: #f9f9f9;
 }
 .notebook_app #header {
     box-shadow: none !important;
+    background-color: #f9f9f9;
 }
 #notebook-container {
     padding: 15px;
@@ -178,14 +195,11 @@ body {
 }
 #header-container {
     padding-bottom: 5px;
-    /* display: none !important; */
+    display: none !important;
     box-shadow: none;
 }
 #header .header-bar {
     background: #f9f9f9;
-}
-div#maintoolbar {
-    /* display: none !important; */
 }
 /* text in output area (i.e. print some_list) */
 div.output_html {color: #1e2429;}
@@ -213,11 +227,11 @@ div.output_html {color: #1e2429;}
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #000000;
-    background-color: rgba(184, 184, 184, 0.15);
+    background-color: rgba(184, 184, 184, 0.19);
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #000000;
-    background-color: rgba(184, 184, 184, 0.15);
+    background-color: rgba(184, 184, 184, 0.19);
 }
 .btn {
     color: #4c4c4c;
@@ -229,7 +243,6 @@ div.output_html {color: #1e2429;}
     text-shadow: none;
     vertical-align: 0px;
 }
-
 .btn-group > .btn-mini {
     color: #4c4c4c;
     background: #f9f9f9;
@@ -297,7 +310,7 @@ div.text_cell_render h6 {
     background: #ececed;
     font-weight: 300;
     color: #4c4c4c;
-    line-height: 80%;
+    line-height: 90%;
 }
 
 /* text in output area (i.e. print some_list) */
@@ -322,13 +335,13 @@ button.close {
     font-size: 22px;
     font-weight: bold;
     line-height: 1;
-    color: #3572C6;
-    text-shadow: 0px 1px 0px rgba(53, 87, 120, 0.2);
+    color: #ee8713;
+    text-shadow: 0px 1px 0px rgba(240, 147, 43, .2);
     opacity: 0.3;
 }
 .close:hover {
-    color: #3572C6;
-    text-shadow: 0px 1px 0px rgba(53, 87, 120, 0.2);
+    color: #ee8713;
+    text-shadow: 0px 1px 0px rgba(240, 147, 43, .2);
     opacity: 0.9;
 }
 .form-control {
@@ -341,7 +354,7 @@ button.close {
     color: #4c4c4c;
     background-color: #ececed;
     background-image: none;
-    border: 1px solid rgba(53, 87, 120, 0.95);
+    border: 1px solid rgba(240, 147, 43, .8);
     border-radius: 2px;
     box-shadow: none;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
@@ -356,6 +369,16 @@ button.close {
       selected: rgba(184, 184, 184, 0.75);
 }
 
+/* TOOLTIP DIMENSIONS */
+div#tooltip.ipython_tooltip {
+    max-width: 900px;
+}
+div.tooltiptext.bigtooltip {
+    overflow: auto;
+    height: 400px;
+    width: 900px;
+}
+
 span.ansiblack {color: #2b303b;}
 span.ansiblue {color: #154ba1;}
 span.ansigray {color: #b4b7b4;}
@@ -368,7 +391,7 @@ span.ansired {color: #b82a18;}
 div.output_stderr {background-color: #DB797C;}
 div.output_stderr pre {color: #000000;}
 
-.cm-s-ipython.CodeMirror {background: #ebebeb; color: #303030; font-size:13pt !important;}
+.cm-s-ipython.CodeMirror {background: #ebebeb; color: #303030;}
 .cm-s-ipython div.CodeMirror-selected {background: #D3D4D7 !important;}
 .cm-s-ipython .CodeMirror-gutters {background: #cccccc; border: 0px; border-radius:0px;}
 .cm-s-ipython .CodeMirror-linenumber {color: #666666 !important; font-size: 11pt;}
@@ -395,7 +418,10 @@ div.output_stderr pre {color: #000000;}
 .cm-s-ipython span.cm-support {color: #de143d;}
 .cm-s-ipython span.cm-qualifier {color: #de143d;}
 
-
+/* Set CodeCell font-size*/
+/*div.CodeMirror pre {font-size: 11pt !important;}*/
+div.CodeMirror pre {line-height: 1.5 !important;}
+div.CodeMirror pre {font-family: 'Hack', monospace; font-size: 11pt;}
 
 div.CodeMirror span.CodeMirror-matchingbracket { color: #000000; background: rgba(53, 114, 198, .3); !important ; }
 div.CodeMirror span.CodeMirror-nonmatchingbracket { color: #000000; background: rgba(191, 97, 106, .3) !important ; }
@@ -404,9 +430,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: #000000; background: 
 
 
 div.cell { border: medium solid #f9f9f9; padding: 0px; border-radius: 0px; }
-div.cell.selected { border: medium solid #ffa43b; padding: 0px; border-radius: 0px; }
-.edit_mode div.cell.selected {border: medium solid rgba(53, 114, 198, .3) !important; padding: 0px; border-radius: 0px; }
-div.cell.edit_mode {border: medium solid rgba(53, 114, 198, .3) !important; padding: 0px; border-radius: 0px;}
+div.cell.selected { border: medium solid #ee8713; padding: 0px; border-radius: 0px; }
+.edit_mode div.cell.selected {border: medium solid #ffd5bb !important; padding: 0px; border-radius: 0px; }
+div.cell.edit_mode {border: medium solid #ffd5bb !important; padding: 0px; border-radius: 0px;}
 
 div.prompt {
     padding: 0.3em;
@@ -425,8 +451,8 @@ div.input_area {
 }
 /*Input and output cells formatting*/
 div.prompt.input_prompt {
-    font-family: 'Inconsolata', monospace;
-    border-right: 1px solid rgba(240, 147, 43, .5);
+    font-family: 'Hack', monospace;
+    border-right: 2px solid rgba(240, 147, 43, .4);
     font-weight: bold;
     font-size: 9.5pt;
     color: #aaaaaa;
@@ -437,7 +463,7 @@ div.prompt.input_prompt {
 }
 
 div.prompt.output_prompt {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Hack', monospace;
     font-weight: bold;
     background-color: #ffffff;
     color: #ffffff;
@@ -448,7 +474,7 @@ div.prompt.output_prompt {
     padding-bottom: 1em;
 }
 div.out_prompt_overlay.prompt {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Hack', monospace;
     font-weight: bold;
     font-size: 9.5pt;
     width: 1em;
@@ -459,14 +485,14 @@ div.out_prompt_overlay.prompt {
     -moz-border-radius: 4px;
 }
 div.out_prompt_overlay.prompt:hover {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Hack', monospace;
     font-weight: bold;
     font-size: 9.5pt;
     width: 1em;
     border-radius: 4px;
     margin-bottom: 8px;
     background-color: #ffffff;
-    box-shadow: #ececed 2px 2px 6px 4px inset;
+    box-shadow: #e2e2e2 2px 2px 6px 4px inset;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
 }
@@ -489,7 +515,7 @@ div.output_subarea.output_text.output_stream.output_stdout,div.output_subarea.ou
 
 div.output_area pre {
     color: #000000;
-    font-size: 12pt;
+    font-size: 10pt;
 }
 div.output_subarea {
     overflow-x: auto;
