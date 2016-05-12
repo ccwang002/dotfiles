@@ -239,7 +239,7 @@ div.output_html {color: #1e2429;}
 .btn-group > .btn-mini {
     color: #4c4c4c;
     background: #f9f9f9;
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: normal;
     border: 0 none !important;
     box-shadow: none !important;
@@ -387,7 +387,7 @@ div.output_stderr pre {color: #000000;}
 .cm-s-ipython.CodeMirror {background: #f2f2f2; color: #303030;}
 .cm-s-ipython div.CodeMirror-selected {background: #D3D4D7 !important;}
 .cm-s-ipython .CodeMirror-gutters {background: #cccccc; border: 0px; border-radius:0px;}
-.cm-s-ipython .CodeMirror-linenumber {color: #666666 !important; font-size: 11pt;}
+.cm-s-ipython .CodeMirror-linenumber {color: #666666 !important; font-size: 12pt;}
 .cm-s-ipython .CodeMirror-cursor {border-left: 2px solid #0095ff !important;}
 .cm-s-ipython span.cm-comment {color: #707070; font-style: italic !important;}
 .cm-s-ipython span.cm-atom {color: #653bc5;}
@@ -412,9 +412,9 @@ div.output_stderr pre {color: #000000;}
 .cm-s-ipython span.cm-qualifier {color: #de143d;}
 
 /* Set CodeCell font-size*/
-/*div.CodeMirror pre {font-size: 11pt !important;}*/
+/*div.CodeMirror pre {font-size: 12pt !important;}*/
 div.CodeMirror pre {line-height: 1.5 !important;}
-div.CodeMirror pre {font-family: 'Hack', monospace; font-size: 11pt;}
+div.CodeMirror pre {font-family: 'Inconsolata', 'Hack', monospace; font-size: 12pt;}
 
 div.CodeMirror span.CodeMirror-matchingbracket { color: #000000; background: rgba(53, 114, 198, .3); !important ; }
 div.CodeMirror span.CodeMirror-nonmatchingbracket { color: #000000; background: rgba(191, 97, 106, .3) !important ; }
@@ -493,7 +493,7 @@ div.output_subarea.output_text.output_stream.output_stdout,div.output_subarea.ou
 
 div.output_area pre {
     color: #000000;
-    font-size: 10pt;
+    font-size: 12pt;
 }
 div.output_subarea {
     overflow-x: auto;
