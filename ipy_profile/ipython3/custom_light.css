@@ -280,14 +280,14 @@ div.output_html {color: #1e2429;}
 /* Formatting code in markdown cells */
 div.text_cell_render {
     font-family: 'Helvetica', sans-serif;
-    background: #ececed;
+    background: #f2f2f2;
     font-weight: 310;
     color: #4c4c4c;
 }
 /* Formatting code in markdown cells */
 div.text_cell_render pre {
     color: #4c4c4c;
-    background-color: #ececed;
+    background-color: #f2f2f2;
 }
 div.text_cell {
     max-width: 100%;
@@ -300,7 +300,7 @@ div.text_cell_render h4,
 div.text_cell_render h5,
 div.text_cell_render h6 {
     font-family: 'Helvetica', sans-serif;
-    background: #ececed;
+    background: #f2f2f2;
     font-weight: 300;
     color: #4c4c4c;
     line-height: 90%;
@@ -313,7 +313,7 @@ div.output_html {color: #4c4c4c;}
 .rendered_html table, .rendered_html th, .rendered_html tr, .rendered_html td {
   border: 1px #4c4c4c solid;
   color: #4c4c4c;
-  background-color: #ececed !important;
+  background-color: #f2f2f2 !important;
   align-content: left !important;
 }
 
@@ -345,7 +345,7 @@ button.close {
     font-size: 13pt;
     line-height: 1.6;
     color: #4c4c4c;
-    background-color: #ececed;
+    background-color: #f2f2f2;
     background-image: none;
     border: 1px solid rgba(240, 147, 43, .8);
     border-radius: 2px;
@@ -384,7 +384,7 @@ span.ansired {color: #b82a18;}
 div.output_stderr {background-color: #DB797C;}
 div.output_stderr pre {color: #000000;}
 
-.cm-s-ipython.CodeMirror {background: #ebebeb; color: #303030;}
+.cm-s-ipython.CodeMirror {background: #f2f2f2; color: #303030;}
 .cm-s-ipython div.CodeMirror-selected {background: #D3D4D7 !important;}
 .cm-s-ipython .CodeMirror-gutters {background: #cccccc; border: 0px; border-radius:0px;}
 .cm-s-ipython .CodeMirror-linenumber {color: #666666 !important; font-size: 11pt;}
@@ -449,7 +449,7 @@ div.prompt.input_prompt {
     font-weight: bold;
     font-size: 9.5pt;
     color: #aaaaaa;
-    background-color: #ececed;
+    background-color: #f2f2f2;
     width: 1em;
     padding-bottom: 0px;
     margin-bottom: 0px;
