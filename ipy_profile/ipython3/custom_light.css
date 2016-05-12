@@ -6,7 +6,7 @@
 body {background-color: #f9f9f9;}
 
 a {color: #303030; font-family: 'Helvetica', sans-serif; }
-div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt, div.CodeMirror pre {font-family:'Hack', monospace; font-size: 11pt;}
+div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt, div.CodeMirror pre {font-family: 'Inconsolata', 'Hack', monospace; font-size: 12pt;}
 
 /* Hiding the ipython log */
 div#ipython_notebook {display: none;}
