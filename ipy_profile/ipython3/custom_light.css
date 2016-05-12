@@ -469,6 +469,9 @@ div.prompt.output_prompt {
 div.out_prompt_overlay.prompt {
     border-radius: 0px;
 }
+.selected div.out_prompt_overlay.prompt {
+	border-right: 2px dashed rgba(240, 147, 43, .4);
+}
 div.out_prompt_overlay.prompt:hover {
     background-color: #f2f2f2;
     border-right: 2px solid rgba(240, 147, 43, .4);
