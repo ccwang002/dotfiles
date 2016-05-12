@@ -458,8 +458,8 @@ div.prompt.input_prompt {
 div.prompt.output_prompt {
     font-family: 'Hack', monospace;
     font-weight: bold;
-    background-color: #ffffff;
-    color: #ffffff;
+    background-color: #f9f9f9;
+    color: #f9f9f9;
     font-size: 9.5pt;
     width: 1em;
     margin-bottom: 8px;
@@ -491,7 +491,7 @@ div.out_prompt_overlay.prompt:hover {
 }
 
 div.output_wrapper {
-    background-color:#ffffff;
+    background-color:#f9f9f9;
     margin-bottom: 0em;
     margin-top: 0em;
     border: 0px;
@@ -502,7 +502,7 @@ div.output_subarea.output_text.output_stream.output_stdout,div.output_subarea.ou
     margin-top: 8px;
     margin-left: 8px;
     margin-right: 8px;
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     color: #000000;
 }
 
