@@ -155,7 +155,7 @@ div.list_container :hover {
     color: #ee8713;
 
 }
-.rendered_html pre, .rendered_html code {
+.rendered_html code:not([class*="cm-s-"]) {
     font-size: 12pt;
     color: #2c2c2c;
     line-height: 100%;
@@ -303,9 +303,15 @@ div.text_cell_render {
     color: #4c4c4c;
 }
 /* Formatting code in markdown cells */
-div.text_cell_render pre {
-    color: #4c4c4c;
-    background-color: #f2f2f2;
+.text_cell_render pre,
+.text_cell_render pre code[class*="cm-"]
+{
+    color: #2c2c2c;
+    background-color: #dfdfdf;
+}
+.text_cell_render pre {
+    /* border-left: 2px solid rgba(240, 147, 43, .4); */
+    padding: 1em;
 }
 div.text_cell {
     max-width: 100%;
