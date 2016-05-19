@@ -2,3 +2,5 @@
 "\e[A": history-search-backward
 "\eOB": history-search-forward
 "\e[B": history-search-forward
+"\e\e[D": backward-word
+"\e\e[C": forward-word
