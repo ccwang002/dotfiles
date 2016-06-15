@@ -19,6 +19,9 @@
 [push]
     default = matching
 
+[diff]
+    compactionHeuristic = true
+
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path =
