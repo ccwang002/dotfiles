@@ -16,6 +16,11 @@
     excludesfile = ~/.gitignore_global
     quotepath = false
 
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+
 [push]
     default = matching
 
