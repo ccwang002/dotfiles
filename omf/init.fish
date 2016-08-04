@@ -10,6 +10,10 @@ set -x PATH $HOME/.cabal/bin /usr/local/sbin /usr/local/bin $PATH
 # Usually is a bad idea to set $TERM in config instead let terminal to decide
 # set -x TERM "xterm-256color"
 
+# For rustup.rs
+# Ref: https://www.rustup.rs/
+set -x PATH "$HOME/.cargo/bin" $PATH
+
 # For pyenv (init at the end of config)
 set -x PYENV_ROOT "$HOME/.pyenv"
 set -x PATH "$PYENV_ROOT/bin" $PATH
