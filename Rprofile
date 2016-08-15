@@ -1,6 +1,6 @@
 ## Default repo
 local({
     r <- getOption("repos")
-    r["CRAN"] <- "https://rweb.crmda.ku.edu/cran"
+    r["CRAN"] <- "https://cran.cnr.berkeley.edu/"
     options(repos=r)
 })
