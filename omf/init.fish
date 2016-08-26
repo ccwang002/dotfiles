@@ -3,7 +3,8 @@ set -x LANG en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 
 # Update PATH for homebrew
-set -x PATH $HOME/.cabal/bin /usr/local/sbin /usr/local/bin $PATH
+test -d "$HOME/.cabal/bin"; and set -x PATH $HOME/.cabal/bin $PATH
+set -x PATH /usr/local/sbin /usr/local/bin $PATH
 
 # 256 color term
 # See Arch wiki: https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
@@ -12,11 +13,11 @@ set -x PATH $HOME/.cabal/bin /usr/local/sbin /usr/local/bin $PATH
 
 # For rustup.rs
 # Ref: https://www.rustup.rs/
-set -x PATH "$HOME/.cargo/bin" $PATH
+test -d "$HOME/.cargo/bin"; and set -x PATH $HOME/.cargo/bin $PATH
 
 # For pyenv (init at the end of config)
-set -x PYENV_ROOT "$HOME/.pyenv"
-# set -x PATH "$PYENV_ROOT/bin" $PATH
+set -x PYENV_ROOT $HOME/.pyenv
+# set -x PATH $PYENV_ROOT/bin $PATH
 
 # For virtualfish
 # newer virtualfish after `pip install virtualfish`
