@@ -16,7 +16,7 @@ set -x PATH "$HOME/.cargo/bin" $PATH
 
 # For pyenv (init at the end of config)
 set -x PYENV_ROOT "$HOME/.pyenv"
-set -x PATH "$PYENV_ROOT/bin" $PATH
+# set -x PATH "$PYENV_ROOT/bin" $PATH
 
 # For virtualfish
 # newer virtualfish after `pip install virtualfish`
