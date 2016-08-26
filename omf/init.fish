@@ -24,8 +24,6 @@ set -x PATH "$PYENV_ROOT/bin" $PATH
 
 # For pip
 set -x PIP_USE_WHEEL "true"
-# set -x PIP_WHEEL_DIR "$HOME/.pip/wheel"
-# set -x PIP_FIND_LINKS "file://$PIP_WHEEL_DIR"
 
 # Init pyenv
 if begin; status --is-interactive; and type -f pyenv > /dev/null; end
