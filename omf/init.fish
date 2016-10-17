@@ -30,3 +30,6 @@ set -x PIP_USE_WHEEL "true"
 if begin; status --is-interactive; and type -f pyenv > /dev/null; end
     . (pyenv init -|psub)
 end
+
+set -x EDITOR (which vim)
+set -x PAGER (which less)
