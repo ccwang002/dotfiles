@@ -7,7 +7,7 @@
 # Theme settings
 set -g theme_display_virtualenv yes
 set -g theme_display_git_ahead_verbose yes
-set -g theme_display_hg yes
-set -g theme_display_user yes
+set -g theme_display_hg no
+set -g theme_display_user no
 set -g theme_display_ruby no
 set -g default_user liang
