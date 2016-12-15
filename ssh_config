@@ -1,0 +1,9 @@
+StrictHostKeyChecking ask
+UseRoaming no
+SendEnv LANG LC_*
+
+
+Host htcf.wustl.edu htcf
+    HostName htcf.wustl.edu
+    Port 22
+    User liang-bo.wang

@@ -30,6 +30,7 @@ symlink_settings = '''\
 ~/.jupyter/custom/custom.css    ipy_profile/ipython3/custom_light.css
 ~/.Rprofile                     Rprofile
 ~/.screenrc                     screenrc
+~/.ssh/config                   ssh_config
 ~/.tmux.conf                    tmux.conf
 '''
 
