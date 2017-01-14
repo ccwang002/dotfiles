@@ -14,11 +14,8 @@ Unexisted folder will be created (but may fail).
 from pathlib import Path
 
 symlink_settings = '''\
-~/.config/mpv/input.conf        mpv/input.conf
-~/.config/mpv/mpv.conf          mpv/mpv.conf
-~/.config/mpv/scripts/autoload.lua  mpv/scripts/autoload.lua
-~/.config/mpv/scripts/stats.lua     mpv/scripts/stats.lua
-~/.config/omf                   omf
+~/.config/mpv/                  mpv/
+~/.config/omf/                  omf/
 ~/.ctags                        ctags
 ~/.editrc                       editrc
 ~/.editorconfig                 editorconfig
