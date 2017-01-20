@@ -7,3 +7,13 @@ Host htcf.wustl.edu htcf
     HostName htcf.wustl.edu
     Port 22
     User liang-bo.wang
+
+
+Host genomic.wustl.edu genomic
+    Hostname genomic.wustl.edu
+    User lwang
+
+
+Host shell.cec.wustl.edu shell
+    Hostname shell.cec.wustl.edu
+    User liang-bo.wang
