@@ -401,23 +401,30 @@ function __bobthefish_prompt_virtualfish -d "Display activated virtual environme
   ## Add conda env support
   [ "$theme_display_virtualenv" = 'no' ]; and return
   [ -z "$VIRTUAL_ENV" -a -z "$CONDA_DEFAULT_ENV" ]; and return
-  if [ "$VIRTUAL_ENV" -a "$CONDA_DEFAULT_ENV" ]
-    echo 'Warning: Both virtualenv and conda env are set!' >&2
-    echo 'Please resolve the limbo by `vf deactivate` or `deactivate`' >&2
-    __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_red --bold
-    echo -n -s '(--LIMBO--)' $__bobthefish_superscript_glyph[4] ' '
-    set_color normal
-    return
-  end
-  set -l version_glyph (__bobthefish_virtualenv_python_version)
+  # if [ "$VIRTUAL_ENV" -a "$CONDA_DEFAULT_ENV" ]
+  #   echo 'Warning: Both virtualenv and conda env are set!' >&2
+  #   echo 'Please resolve the limbo by `vf deactivate` or `deactivate`' >&2
+  #   __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_red --bold
+  #   echo -n -s '(--LIMBO--)' $__bobthefish_superscript_glyph[4] ' '
+  #   set_color normal
+  #   return
+  # end
+  # set -l version_glyph (__bobthefish_virtualenv_python_version)
   ## The following generate [py]^[ver] > [pyenv]
   # if [ "$version_glyph" ]
   #   __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_grey
   #   echo -n -s $__bobthefish_virtualenv_glyph $version_glyph
   # end
+  set -l env_name
+  if [ "$VIRTUAL_ENV" -a "$CONDA_DEFAULT_ENV" ]
+      set env_name "$CONDA_DEFAULT_ENV"
+  else
+      set env_name (basename "$VIRTUAL_ENV$CONDA_DEFAULT_ENV")
+  end
   ## Change it to ([pyenv])^[ver]
   __bobthefish_start_segment $__bobthefish_med_blue $__bobthefish_lt_grey --bold
-  echo -n -s "(" (basename "$VIRTUAL_ENV$CONDA_DEFAULT_ENV") ")" $version_glyph ' '
+  # echo -n -s "(" (basename "$VIRTUAL_ENV$CONDA_DEFAULT_ENV") ")" $version_glyph ' '
+  echo -n -s "($env_name) "
   set_color normal
 end
 
