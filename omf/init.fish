@@ -29,9 +29,6 @@ set -x PIP_USE_WHEEL "true"
 # Init pyenv
 if begin; status --is-interactive; and which pyenv > /dev/null; end
     source (pyenv init - | psub)
-    if which  pyenv-virtualenv-init > /dev/null
-        source (pyenv virtualenv-init - | psub)
-    end
 end
 
 
