@@ -1,6 +1,6 @@
 function __bobthefish_git_branch -S -d 'Get the current git branch (or commitish)'
   set -l ref (command git symbolic-ref HEAD ^/dev/null)
-    and echo $ref | sed -e "s#refs/heads/#$__bobthefish_branch_glyph #" -e "s#[[:<:]]master\$##"
+    and echo $ref | sed -e "s#refs/heads/#$__bobthefish_branch_glyph #" -e "s# master# #"
     and return
 
   set -l tag (command git describe --tags --exact-match ^/dev/null)
