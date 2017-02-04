@@ -10,9 +10,3 @@ function __bobthefish_git_branch -S -d 'Get the current git branch (or commitish
   set -l branch (command git show-ref --head -s --abbrev | head -n1 ^/dev/null)
   echo "$__bobthefish_detached_glyph $branch"
 end
-
-function __bobthefish_hg_branch -S -d 'Get the current hg branch'
-  set -l branch (command hg branch ^/dev/null)
-  set -l book (command hg book | command grep \* | cut -d\  -f3)
-  echo "$__bobthefish_branch_glyph $branch @ $book"
-end
