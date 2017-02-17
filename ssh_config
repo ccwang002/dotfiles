@@ -17,3 +17,8 @@ Host genomic.wustl.edu genomic
 Host shell.cec.wustl.edu shell
     Hostname shell.cec.wustl.edu
     User liang-bo.wang
+
+
+Host ssh-jump-1.gsc.wustl.edu gsc mgi
+    Hostname ssh-jump-1.gsc.wustl.edu
+    User lwang
