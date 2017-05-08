@@ -11,15 +11,6 @@ if status --is-login
     # Ref: https://www.rustup.rs/
     test -d "$HOME/.cargo/bin"; and set -x PATH $HOME/.cargo/bin $PATH
 
-    # For pyenv (init at the end of config)
-    # set -x PYENV_ROOT $HOME/.pyenv
-    # set -x PATH $PYENV_ROOT/bin $PATH
-
-    # Init pyenv
-    # if begin; status --is-interactive; and which pyenv > /dev/null; end
-    #     source (pyenv init - | psub)
-    # end
-
     # Python environment
     # Disable Python venv prompt changing
     set -gx VIRTUAL_ENV_DISABLE_PROMPT "yes"
