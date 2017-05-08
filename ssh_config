@@ -19,6 +19,11 @@ Host shell.cec.wustl.edu shell
     User liang-bo.wang
 
 
+Host lab-cluster lab
+    Hostname 10.22.24.1
+    User lwang
+    IdentityFile ~/.ssh/id_wustl_rsa
+
 Host ssh-jump-1.gsc.wustl.edu gsc mgi
     Hostname ssh-jump-1.gsc.wustl.edu
     User lwang
