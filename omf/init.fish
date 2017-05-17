@@ -24,7 +24,7 @@ if status --is-login
         case 'Linux*'
             # Settings on Linux (mostly servers)
             # Rust environment by rustup.rs
-            if [ -n $CARGO_HOME -a $RUSTUP_HOME ]
+            if [ -n $CARGO_HOME -a -n $RUSTUP_HOME ]
                 set -x PATH $CARGO_HOME/bin $PATH
                 set -x CARGO_HOME $CARGO_HOME
                 set -x RUSTUP_HOME $RUSTUP_HOME
