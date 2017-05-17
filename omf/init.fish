@@ -29,6 +29,12 @@ if status --is-login
                 set -x CARGO_HOME $CARGO_HOME
                 set -x RUSTUP_HOME $RUSTUP_HOME
             end
+
+            # Conda
+            if [ -d $CONDA_ROOT ]
+                set -x PATH $CONDA_ROOT/bin $PATH
+                source $CONDA_ROOT/etc/fish/conf.d/conda.fish
+            end
         case '*'
             echo "Unrecognized OS: (uname -a)!"
     end
