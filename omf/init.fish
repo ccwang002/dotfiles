@@ -16,7 +16,6 @@ if status --is-login
             test -d "$HOME/.cargo/bin"; and set -x PATH $HOME/.cargo/bin $PATH
 
             # conda http://conda.pydata.org/miniconda.html
-            set -l CONDA_ROOT $HOME/miniconda3
             if [ -d $CONDA_ROOT ]
                 set -x PATH $HOME/miniconda3/bin $PATH
                 source $CONDA_ROOT/etc/fish/conf.d/conda.fish
