@@ -7,8 +7,9 @@ if status --is-login
         case 'Darwin*'
             # Settings on MacOS
             # Update PATH for homebrew
-            test -d "$HOME/.cabal/bin"; and set -x PATH $HOME/.cabal/bin $PATH
             set -x PATH /usr/local/sbin /usr/local/bin $PATH
+
+            test -d "$HOME/.cabal/bin"; and set -x PATH $HOME/.cabal/bin $PATH
 
             # For rustup.rs
             # Ref: https://www.rustup.rs/
