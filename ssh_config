@@ -3,6 +3,8 @@ UseRoaming no
 SendEnv LANG LC_*
 
 
+## Lab servers
+
 Host htcf.wustl.edu htcf
     HostName htcf.wustl.edu
     Port 22
