@@ -16,6 +16,7 @@ from pathlib import Path
 symlink_settings = '''\
 ~/.config/mpv/                  mpv/
 ~/.config/omf/                  omf/
+~/.config/git/gitk              gitk_config
 ~/.ctags                        ctags
 ~/.editrc                       editrc
 ~/.editorconfig                 editorconfig
