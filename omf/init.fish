@@ -31,7 +31,7 @@ if status --is-login
             end
 
             # Conda
-            if set -q $CONDA_ROOT; and test -d $CONDA_ROOT
+            if set -q CONDA_ROOT; and test -d $CONDA_ROOT
                 set -x PATH $CONDA_ROOT/bin $PATH
                 source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
