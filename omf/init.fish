@@ -16,7 +16,7 @@ if status --is-login
             test -d "$HOME/.cargo/bin"; and set -x PATH $HOME/.cargo/bin $PATH
 
             # conda http://conda.pydata.org/miniconda.html
-            if [ -d $CONDA_ROOT ]
+            if set -q CONDA_ROOT; and test -d $CONDA_ROOT
                 set -x PATH $HOME/miniconda3/bin $PATH
                 source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
@@ -24,14 +24,14 @@ if status --is-login
         case 'Linux*'
             # Settings on Linux (mostly servers)
             # Rust environment by rustup.rs
-            if [ -n $CARGO_HOME -a -n $RUSTUP_HOME ]
+            if set -q CARGO_HOME; and seq -q $RUSTUP_HOME
                 set -x PATH $CARGO_HOME/bin $PATH
                 set -x CARGO_HOME $CARGO_HOME
                 set -x RUSTUP_HOME $RUSTUP_HOME
             end
 
             # Conda
-            if [ -d $CONDA_ROOT ]
+            if set -q $CONDA_ROOT; and test -d $CONDA_ROOT
                 set -x PATH $CONDA_ROOT/bin $PATH
                 source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
