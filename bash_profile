@@ -27,7 +27,7 @@ replace_bash_with_fish() {
         export SHELL=$FISH_BIN
         echo "One can launch the fish shell by:"
         echo 'exec -l $SHELL -l'
-        # exec -l $SHELL -l   # launch the fish login shell
+        exec -l $SHELL -l   # launch the fish login shell
     else
         echo "Failed to launch fish shell. Go check its installation!"
         echo "Fall back to default shell $SHELL ..."
