@@ -30,6 +30,7 @@ symlink_settings = '''\
 ~/.screenrc                     screenrc
 ~/.ssh/config                   ssh_config
 ~/.tmux.conf                    tmux.conf
+~/.config/nvim/init.vim         nvim_init.vim
 '''
 
 
