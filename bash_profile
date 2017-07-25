@@ -12,7 +12,7 @@ setup_shell_env() {
 
     # Linuxbrew settings
     PATH=$WORKSPACE/local/bin:$WORKSPACE/.linuxbrew/bin:$WORKSPACE/.linuxbrew/sbin:$PATH
-    MANPATH=$WORKSPACE/.linuxbrew/share/man:$MANPATH
+    MANPATH=$WORKSPACE/local/share/man:$WORKSPACE/.linuxbrew/share/man:$MANPATH
     INFOPATH=$WORKSPACE/.linuxbrew/share/info:$INFOPATH
     HOMEBREW_CACHE=$WORKSPACE/.cache/Homebrew
     HOMEBREW_MAKE_JOBS=6
