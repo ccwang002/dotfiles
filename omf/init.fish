@@ -22,6 +22,10 @@ if status --is-login
             end
 
         case 'Linux*'
+            # Check if it's in MGI Docker
+            if string match '*.gsc.wustl.edu' (hostname)
+                source $HOME/docker_clean_env.fish
+            end
             # Settings on Linux (mostly servers)
             # Rust environment by rustup.rs
             if set -q CARGO_HOME; and set -q RUSTUP_HOME
