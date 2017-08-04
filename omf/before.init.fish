@@ -23,6 +23,7 @@ set -g theme_display_vi yes
 set -g theme_display_virtualenv no
 set -g theme_git_worktree_support no
 set -g theme_nerd_fonts no
+set -g theme_newline_cursor no
 set -g theme_powerline_fonts no
 set -g theme_project_dir_length 1
 set -g theme_show_exit_status yes
