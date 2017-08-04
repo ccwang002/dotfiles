@@ -21,6 +21,13 @@ if status --is-login
                 source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
 
+            # Google Cloud SDK
+            if test -d "$HOME/google-cloud-sdk"
+                source "$HOME/google-cloud-sdk/path.fish.inc"
+                # So far no completion for fish shell, use bass
+                # bass source "$HOME/google-cloud-sdk/completion.bash.inc"
+            end
+
         case 'Linux*'
             # Check if it's in MGI Docker
             if string match '*.gsc.wustl.edu' (hostname)
