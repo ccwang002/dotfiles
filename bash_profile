@@ -15,9 +15,10 @@ setup_shell_env() {
     MANPATH=$WORKSPACE/local/share/man:$WORKSPACE/.linuxbrew/share/man:$MANPATH
     INFOPATH=$WORKSPACE/.linuxbrew/share/info:$INFOPATH
     HOMEBREW_CACHE=$WORKSPACE/.cache/Homebrew
+    HOMEBREW_TEMP=$TMPDIR
     HOMEBREW_MAKE_JOBS=6
 
-    export PATH MANPATH INFOPATH HOMEBREW_CACHE HOMEBREW_MAKE_JOBS
+    export PATH MANPATH INFOPATH HOMEBREW_CACHE HOMEBREW_TEMP HOMEBREW_MAKE_JOBS
 }
 
 replace_bash_with_fish() {
