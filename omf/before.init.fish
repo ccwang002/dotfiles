@@ -19,7 +19,7 @@ set -g theme_display_hg no
 set -g theme_display_ruby no
 set -g theme_display_user no
 set -g theme_display_vagrant no
-set -g theme_display_vi yes
+set -g theme_display_vi no
 set -g theme_display_virtualenv no
 set -g theme_git_worktree_support no
 set -g theme_nerd_fonts no
