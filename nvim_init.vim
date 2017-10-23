@@ -135,7 +135,8 @@ set wildoptions=tagfile
 
 " Neovim specific settings
 let g:loaded_python_provider = 1  " Disable Python 2 support
-
+let g:python3_host_prog = "/Users/liang/miniconda3/envs/nvim/bin/python3"
+set guicursor=a:block
 
 " Plugin
 call plug#begin('~/.local/share/nvim/plugged')
