@@ -29,25 +29,23 @@ if status --is-login
             end
 
         case 'Linux*'
-            # If in tmux we don't set up the PATH again
-            if test -z "$TMUX"
-                # Check if it's in MGI Docker
-                if string match '*.gsc.wustl.edu' (hostname)
-                    source $HOME/docker_clean_env.fish
-                end
-                # Settings on Linux (mostly servers)
-                # Rust environment by rustup.rs
-                if set -q CARGO_HOME; and set -q RUSTUP_HOME
-                    set -x PATH $CARGO_HOME/bin $PATH
-                    set -x CARGO_HOME $CARGO_HOME
-                    set -x RUSTUP_HOME $RUSTUP_HOME
-                end
+            # Check if it's in MGI Docker
+            if string match '*.gsc.wustl.edu' (hostname)
+                source $HOME/docker_clean_env.fish
+            end
 
-                # Conda
-                if set -q CONDA_ROOT; and test -d $CONDA_ROOT
-                    set -x PATH $CONDA_ROOT/bin $PATH
-                    source $CONDA_ROOT/etc/fish/conf.d/conda.fish
-                end
+            # Settings on Linux (mostly servers)
+            # Rust environment by rustup.rs
+            if set -q CARGO_HOME; and set -q RUSTUP_HOME
+                set -x PATH $CARGO_HOME/bin $PATH
+                set -x CARGO_HOME $CARGO_HOME
+                set -x RUSTUP_HOME $RUSTUP_HOME
+            end
+
+            # Conda
+            if set -q CONDA_ROOT; and test -d $CONDA_ROOT
+                set -x PATH $CONDA_ROOT/bin $PATH
+                source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
         case '*'
             echo "Unrecognized OS: (uname -a)!"
