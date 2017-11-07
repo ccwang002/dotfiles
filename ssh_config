@@ -28,11 +28,14 @@ Host lab-cluster
 
 
 ## MGI servers
-
-Host linus300
-    Hostname linus300
-    User lwang
-
-Host ssh-jump-1.gsc.wustl.edu gsc mgi
+Host mgi gsc
     Hostname ssh-jump-1.gsc.wustl.edu
     User lwang
+    UserKnownHostsFile ~/.ssh/mgi_known_hosts
+    IdentityFile ~/.ssh/id_wustl_rsa
+
+# General configuration for the MGI servers
+Host virtual-workstation1 blade* *.gsc.wustl.edu
+    User lwang
+    UserKnownHostsFile ~/.ssh/mgi_known_hosts
+    IdentityFile ~/.ssh/id_wustl_rsa
