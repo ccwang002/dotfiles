@@ -27,7 +27,7 @@ symlink_settings = '''\
 ~/.hgrc                         hgrc
 ~/.hgignore_global              hgignore_global
 ~/.inputrc                      inputrc
-~/.jupyter/custom/custom.css    ipy_profile/ipython3/custom_light.css
+~/.jupyter/custom/custom.css    jupyter_themes/jt_oceans16.css
 ~/.Rprofile                     Rprofile
 ~/.screenrc                     screenrc
 ~/.ssh/config                   ssh_config
