@@ -36,7 +36,7 @@ symlink_settings = '''\
 '''
 
 
-def main(patterns_to_link):
+def main(patterns_to_link, dry_run):
     for setting_line in symlink_settings.splitlines():
         dest_pth, src_pth = setting_line.rstrip().split(maxsplit=1)
         # Check if user wants to link this pattern
@@ -51,6 +51,9 @@ def main(patterns_to_link):
             import os.path as op
             dest = Path(op.expanduser(dest_pth))
         src = Path(src_pth).resolve()
+        if dry_run:
+            print('Will link', dest_pth, 'to', src_pth)
+            continue
         print('Link', dest, '->', src)
         if dest.exists():
             print('... symlink existed ->', dest.resolve(), '(removed)')
@@ -66,5 +69,9 @@ if __name__ == '__main__':
     parser.add_argument(
         '--only', action='append',
         help='Only link the files that match the shell-like pattern')
+    parser.add_argument(
+        '--dry-run', action='store_true',
+        help='List the links to be done but no symlink will be made'
+    )
     args = parser.parse_args()
-    main(patterns_to_link=args.only)
+    main(patterns_to_link=args.only, dry_run=args.dry_run)
