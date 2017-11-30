@@ -4,7 +4,6 @@ SendEnv LANG LC_*
 
 
 ## Lab servers
-
 Host htcf.wustl.edu htcf
     HostName htcf.wustl.edu
     Port 22
@@ -24,6 +23,12 @@ Host shell.cec.wustl.edu shell
 Host lab-cluster
     Hostname 10.22.24.1
     User lwang
+    IdentityFile ~/.ssh/id_wustl_rsa
+
+
+Host ptmportal.liang2.io ptmportal
+    Hostname ptmportal.liang2.io
+    User lbwang
     IdentityFile ~/.ssh/id_wustl_rsa
 
 
