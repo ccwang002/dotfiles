@@ -20,11 +20,16 @@ Host shell.cec.wustl.edu shell
     User liang-bo.wang
 
 
-Host lab-cluster
+# Ding Lab clusters
+Host denali lab-cluster
     Hostname 10.22.24.1
     User lwang
     IdentityFile ~/.ssh/id_wustl_rsa
 
+Host katmai
+    Hostname 10.22.24.2
+    User lwang
+    IdentityFile ~/.ssh/id_wustl_rsa
 
 Host ptmportal.liang2.io ptmportal
     Hostname ptmportal.liang2.io
