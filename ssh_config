@@ -33,8 +33,14 @@ Host katmai
     IdentityFile ~/.ssh/id_wustl_rsa
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
 
-Host ptmportal.liang2.io ptmportal
-    Hostname ptmportal.liang2.io
+Host ptmportal.liang-bo.wang ptmportal
+    Hostname ptmportal.liang-bo.wang
+    User lbwang
+    IdentityFile ~/.ssh/id_wustl_rsa
+    UserKnownHostsFile ~/.ssh/dinglab_known_hosts
+
+Host ptmcosmos.wustl.edu ptmcosmos.liang-bo.wang ptmcosmos
+    Hostname ptmcosmos.liang-bo.wang
     User lbwang
     IdentityFile ~/.ssh/id_wustl_rsa
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
