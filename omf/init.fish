@@ -15,17 +15,17 @@ if status --is-login; and not set -q TMUX
             # Ref: https://www.rustup.rs/
             test -d "$HOME/.cargo/bin"; and set -x PATH $HOME/.cargo/bin $PATH
 
-            # conda http://conda.pydata.org/miniconda.html
-            if set -q CONDA_ROOT; and test -d $CONDA_ROOT
-                set -x PATH $HOME/miniconda3/bin $PATH
-                source $CONDA_ROOT/etc/fish/conf.d/conda.fish
-            end
-
             # Google Cloud SDK
             if test -d "$HOME/google-cloud-sdk"
                 source "$HOME/google-cloud-sdk/path.fish.inc"
                 # So far no completion for fish shell, use bass
                 # bass source "$HOME/google-cloud-sdk/completion.bash.inc"
+            end
+
+            # conda http://conda.pydata.org/miniconda.html
+            if set -q CONDA_ROOT; and test -d $CONDA_ROOT
+                set -x PATH $CONDA_ROOT/bin $PATH
+                source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
 
         case 'Linux*'
@@ -45,7 +45,7 @@ if status --is-login; and not set -q TMUX
             # Conda
             if set -q CONDA_ROOT; and test -d $CONDA_ROOT
                 set -x PATH $CONDA_ROOT/bin $PATH
-                source $CONDA_ROOT/etc/fish/conf.d/conda.fish
+                # source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
         case '*'
             echo "Unrecognized OS: (uname -a)!"
