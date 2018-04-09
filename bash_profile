@@ -19,6 +19,9 @@ setup_shell_env() {
     HOMEBREW_MAKE_JOBS=6
 
     export PATH MANPATH INFOPATH HOMEBREW_CACHE HOMEBREW_TEMP HOMEBREW_MAKE_JOBS
+
+    # Set default permission
+    umask 002
 }
 
 replace_bash_with_fish() {
