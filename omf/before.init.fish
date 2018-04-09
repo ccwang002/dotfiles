@@ -5,7 +5,7 @@
 # set fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 
 # Theme settings
-# set -g default_user "liang"
+set -g default_user "liang"
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_avoid_ambiquous_glyphs no
 set -g theme_color_scheme "dark"
@@ -18,7 +18,7 @@ set -g theme_display_git_ahead_verbose yes
 set -g theme_display_git_untracked yes
 set -g theme_display_hg no
 set -g theme_display_ruby no
-set -g theme_display_user ssh
+set -g theme_display_user no
 set -g theme_display_hostname ssh
 set -g theme_display_vagrant no
 set -g theme_display_vi no
