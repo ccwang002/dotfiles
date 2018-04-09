@@ -5,7 +5,7 @@
 # set fish_function_path $HOME/dotfiles/fish/functions $fish_function_path
 
 # Theme settings
-set -g default_user "liang"
+# set -g default_user "liang"
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_avoid_ambiquous_glyphs no
 set -g theme_color_scheme "dark"
