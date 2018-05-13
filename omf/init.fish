@@ -54,7 +54,7 @@ if status --is-login; and not set -q TMUX
 
     # Python environment
     # Disable Python venv prompt changing
-    set -gx VIRTUAL_ENV_DISABLE_PROMPT "yes"
+    # set -gx VIRTUAL_ENV_DISABLE_PROMPT "yes"
 
     set -gx EDITOR (which vim)
     set -gx PAGER (which less)
