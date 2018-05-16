@@ -45,7 +45,7 @@ if status --is-login; and not set -q TMUX
 
             # Conda
             if set -q CONDA_ROOT; and test -d $CONDA_ROOT
-                set -x PATH $CONDA_ROOT/bin $PATH
+                # set -x PATH $CONDA_ROOT/bin $PATH
                 # source $CONDA_ROOT/etc/fish/conf.d/conda.fish
             end
         case '*'
