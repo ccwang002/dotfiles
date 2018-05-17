@@ -25,9 +25,9 @@ if status --is-login; and not set -q TMUX
             # conda http://conda.pydata.org/miniconda.html
             # soft link ~/miniconda3/etc/fish/conf.d/conda.fish
             # to ~/.config/fish/functions/
-            if set -q CONDA_ROOT; and test -d $CONDA_ROOT
-                set -x PATH $CONDA_ROOT/bin $PATH
-            end
+            # if set -q CONDA_ROOT; and test -d $CONDA_ROOT
+            #     set -x PATH $CONDA_ROOT/bin $PATH
+            # end
 
         case 'Linux*'
             # Check if it's in MGI Docker
@@ -44,10 +44,10 @@ if status --is-login; and not set -q TMUX
             end
 
             # Conda
-            if set -q CONDA_ROOT; and test -d $CONDA_ROOT
-                # set -x PATH $CONDA_ROOT/bin $PATH
-                # source $CONDA_ROOT/etc/fish/conf.d/conda.fish
-            end
+            # if set -q CONDA_ROOT; and test -d $CONDA_ROOT
+            #     set -x PATH $CONDA_ROOT/bin $PATH
+            #     source $CONDA_ROOT/etc/fish/conf.d/conda.fish
+            # end
         case '*'
             echo "Unrecognized OS: (uname -a)!"
     end
