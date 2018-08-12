@@ -10,7 +10,7 @@
 
 [user]
     name = Liang-Bo Wang
-    email = me@liang2.tw
+    email = liang-bo.wang@wustl.edu
 
 [core]
     excludesfile = ~/.gitignore_global
