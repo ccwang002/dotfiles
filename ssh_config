@@ -48,7 +48,7 @@ Host mgi gsc
     IdentityFile ~/.ssh/id_wustl_rsa
 
 # General configuration for the MGI servers
-Host virtual-workstation1 virtual-workstation2 virtual-workstation3 virtual-workstation4 virtual-workstation5 blade* *.gsc.wustl.edu
+Host virtual-workstation* vw1 vw2 vw3 vw4 vw5 blade* *.gsc.wustl.edu
     User lwang
     UserKnownHostsFile ~/.ssh/mgi_known_hosts
     IdentityFile ~/.ssh/id_wustl_rsa
