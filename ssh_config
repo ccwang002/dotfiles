@@ -41,11 +41,6 @@ Host ptmcosmos.wustl.edu ptmcosmos
 
 
 ## MGI servers
-Host mgi gsc
-    Hostname ssh-jump-1.gsc.wustl.edu
-    User lwang
-    UserKnownHostsFile ~/.ssh/mgi_known_hosts
-    IdentityFile ~/.ssh/id_wustl_rsa
 
 # General configuration for the MGI servers
 Host virtual-workstation* vw1 vw2 vw3 vw4 vw5 blade* *.gsc.wustl.edu
