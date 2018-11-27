@@ -47,3 +47,9 @@ Host virtual-workstation* vw1 vw2 vw3 vw4 vw5 blade* *.gsc.wustl.edu
     User lwang
     UserKnownHostsFile ~/.ssh/mgi_known_hosts
     IdentityFile ~/.ssh/id_wustl_rsa
+
+# The servers only available thru katmai
+Host sitka kobuk kenai
+    User lwang
+    UserKnownHostsFile ~/.ssh/mgi_known_hosts
+    IdentityFile ~/.ssh/id_wustl_rsa
