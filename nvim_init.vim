@@ -128,13 +128,6 @@ set wildmode=longest:full
 set wildoptions=tagfile
 " }}}
 
-" Netrw {{{
-" Change current folder (pwd) to the folder of the current file
-nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
-" Launch the builtin file browser
-nnoremap <Leader>f :Explore<CR>
-" }}}
-
 " A custom function to trim trailing white spaces {{{
 func DeleteTrailingWhiteSpace()
     exe "normal mz"
@@ -144,24 +137,37 @@ endfunc
 nnoremap <leader>dw :call DeleteTrailingWhiteSpace()<CR>
 " }}}
 
-" Neovim specific settings {{{
+" Neovim specific settings
+" Install python dependencies by creating a venv:
+"
+"     cd ~/.local/share/nvim
+"     python3 -m venv pyvenv
+"     . pyvenv/bin/activate.fish
+"     pip install pynvim neovim
+" {{{
 let g:loaded_python_provider = 1  " Disable Python 2 support
-let g:python3_host_prog = "/Users/liang/miniconda3/envs/nvim/bin/python3"
+let g:python3_host_prog = "~/.local/share/nvim/pyvenv/bin/python3"
 set guicursor=a:block
 " }}}
 
+" Plugins managed by vim-plug
+" After installing vim-plug, run :PlugInstall or :PlugUpdate
+" to install or update the plugins
+"
+" Then run :UpdateRemotePlugins to link the external plugins
 " Plugins {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Color theme {{{
+" Color theme
 Plug 'michalbachowski/vim-wombat256mod'
 
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'powerlineish'
-" }}}
 
-" Denite (former Unite) Editing
+" Denite.nvim (former Unite.vim)
+" {{{
 Plug 'Shougo/denite.nvim', {
             \ 'on': ['Denite', 'DeniteBufferDir'],
             \ 'do': ':UpdateRemotePlugins'
@@ -179,7 +185,9 @@ nnoremap <silent> [denite]o :<C-u>Denite outline<CR>
 
 autocmd User denite.nvim call s:denite_settings()
 function! s:denite_settings()
-    " call denite#custom#option("_", {'direction': 'topleft'})
+    " Because the denite input prompt is at the bottom
+    " See https://github.com/Shougo/denite.nvim/issues/179
+    " call denite#custom#option('default', 'direction', 'topleft')
     call denite#custom#map(
                 \ 'insert', '<Down>',
                 \ '<denite:move_to_next_line>', 'noremap'
@@ -188,32 +196,35 @@ function! s:denite_settings()
                 \ 'insert', '<Up>',
                 \ '<denite:move_to_previous_line>', 'noremap'
                 \)
+    " Use ripgrep to grep source
     call denite#custom#var('grep', 'command', ['rg'])
-    call denite#custom#var('grep', 'default_opts',
-                \ ['--vimgrep', '--no-heading'])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
     call denite#custom#var('grep', 'recursive_opts', [])
     call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
 endfunction
+" }}}
 
+" Recently accessed files/directories
+" Enable the file_mru and directory_mru sources in denite.nvim to record the
+" neomru.vim {{{
 Plug 'Shougo/neomru.vim'
-" To track long mru history.
+" To track long mru history (number of files/directories).
 let g:neomru#file_mru_limit = 3000
 let g:neomru#directory_mru_limit = 3000
 " Time to update MRU list (now for evey half minute)
 let g:neomru#update_interval = 30
+" }}}
 
-" For better wrapping
-Plug 'vim-jp/autofmt'
-
-" Language specific
+" Syntax highlighting {{{
+" A bundle of language packs
 Plug 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['css', 'tex', 'plaintex', 'python']
+let g:polyglot_disabled = ['css', 'tex', 'plaintex', 'latex', 'python']
 
-" syntax for CSS3
+" CSS3 syntax
 Plug 'hail2u/vim-css3-syntax', {'for': ['css'] }
-
+" Actual coloring in CSS
 Plug 'ap/vim-css-color', {
     \ 'for': [
     \       'html', 'djangohtml',
@@ -221,7 +232,8 @@ Plug 'ap/vim-css-color', {
     \       'javascript', 'coffee', 'coffeescript'
     \ ] }
 
-" syntax for Python
+" Python {{{
+" Syntax
 Plug 'vim-python/python-syntax', {'for': ['python', 'pyrex']}
 let g:python_highlight_builtin_objs = 1
 let g:python_highlight_builtin_funcs = 1
@@ -229,16 +241,61 @@ let g:python_highlight_exceptions = 1
 let g:python_highlight_string_formatting = 1
 let g:python_highlight_string_format = 1
 let g:python_highlight_string_templates = 1
-
-" indent for Python
+" Indentation
 Plug 'Vimjas/vim-python-pep8-indent', {'for': ['python', 'pyrex']}
+" }}}
 
 " Snakemake
 Plug 'ccwang002/vim-snakemake'
+" }}}
 
+" File explorer (defx.nvim; replacing vimfiler.vim) {{{
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+nnoremap <Leader>f :Defx -toggle <CR>
+nnoremap <Leader>b :Defx -toggle -direction=topleft -split=vertical -winwidth=50<CR>
+" Change current folder (pwd) to the folder of the current file
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" Editing
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+  " Define mappings
+  nnoremap <silent><buffer><expr> <CR>
+  \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> C
+  \ defx#do_action('toggle_columns',
+  \                'mark:filename:type:size:time')
+  nnoremap <silent><buffer><expr> S
+  \ defx#do_action('toggle_sort', 'time')
+  nnoremap <silent><buffer><expr> yy
+  \ defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> .
+  \ defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> <BS>
+  \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~
+  \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> q
+  \ defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <Space>
+  \ defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> *
+  \ defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr> j
+  \ line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> k
+  \ line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr> <C-l>
+  \ defx#do_action('redraw')
+  nnoremap <silent><buffer><expr> <C-g>
+  \ defx#do_action('print')
+  nnoremap <silent><buffer><expr> cd
+  \ defx#do_action('change_vim_cwd')
+endfunction
+" }}}
+
+" Editing {{{
 " Completion
+" deoplete.nvim {{{
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 let g:deoplete#enable_at_startup = 0
 autocmd InsertEnter * call deoplete#enable()
@@ -253,20 +310,23 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
     return deoplete#close_popup() . "\<CR>"
 endfunction
+" }}}
+
+" Better text wrapping for asian wide characters
+Plug 'vim-jp/autofmt'
 
 " General FileType setting by EditorConfig
 Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/vim-easy-align', {
-        \ 'on': ['<Plug>(EasyAlign)', 'EasyAlign', 'LiveEasyAlign'],
-        \ }
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+
+" Align multiple rows
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign', 'LiveEasyAlign'] }
 
 " Shortcuts for HTML & CSS
 Plug 'mattn/emmet-vim', { 'for': ['html', 'htmldjango'] }
 
 call plug#end() " Initialize plugin system
 " }}}
+" }}}
 
-" Color theme
+" Set the color theme
 colorscheme wombat256mod
