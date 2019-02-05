@@ -217,20 +217,25 @@ let g:neomru#directory_mru_limit = 3000
 let g:neomru#update_interval = 30
 " }}}
 
-" Syntax highlighting {{{
+" Language specific syntax highlighting {{{
 " A bundle of language packs
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['css', 'tex', 'plaintex', 'latex', 'python']
+let g:vim_markdown_conceal = 0   " Disable markdown conceal
 
 " CSS3 syntax
 Plug 'hail2u/vim-css3-syntax', {'for': ['css'] }
-" Actual coloring in CSS
+
+" Render colors in CSS
 Plug 'ap/vim-css-color', {
     \ 'for': [
     \       'html', 'djangohtml',
     \       'css', 'stylus', 'less', 'scss',
     \       'javascript', 'coffee', 'coffeescript'
     \ ] }
+
+" HTML shorcut expansion
+Plug 'mattn/emmet-vim', { 'for': ['html', 'htmldjango'] }
 
 " Python {{{
 " Syntax
@@ -293,7 +298,7 @@ function! s:defx_my_settings() abort
 endfunction
 " }}}
 
-" Editing {{{
+" Editing support {{{
 " Completion
 " deoplete.nvim {{{
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
@@ -315,14 +320,11 @@ endfunction
 " Better text wrapping for asian wide characters
 Plug 'vim-jp/autofmt'
 
-" General FileType setting by EditorConfig
+" Configure gneral FileType setting by EditorConfig
 Plug 'editorconfig/editorconfig-vim'
 
 " Align multiple rows
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign', 'LiveEasyAlign'] }
-
-" Shortcuts for HTML & CSS
-Plug 'mattn/emmet-vim', { 'for': ['html', 'htmldjango'] }
 
 call plug#end() " Initialize plugin system
 " }}}
