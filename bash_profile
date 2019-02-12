@@ -2,8 +2,10 @@
 
 # All developments are under workspace
 readonly WORKSPACE=/diskmnt/Projects/Users/lwang
+# Root of the Linuxbrew
+readonly HOMEBREW_PREFIX=$WORKSPACE/.linuxbrew
 # Where the fish shell should be
-readonly FISH_BIN=$WORKSPACE/.linuxbrew/bin/fish
+readonly FISH_BIN=$HOMEBREW_PREFIX/bin/fish
 
 setup_shell_env() {
     # User specific environment and startup programs
@@ -11,14 +13,20 @@ setup_shell_env() {
     export TMPDIR="/run/user/$(id --user)"
 
     # Linuxbrew settings
-    PATH=$WORKSPACE/local/bin:$WORKSPACE/.linuxbrew/bin:$WORKSPACE/.linuxbrew/sbin:$PATH
-    MANPATH=$WORKSPACE/local/share/man:$WORKSPACE/.linuxbrew/share/man:$MANPATH
-    INFOPATH=$WORKSPACE/.linuxbrew/share/info:$INFOPATH
+    HOMEBREW_CELLAR=$HOMEBREW_PREFIX/Cellar
+    HOMEBREW_REPOSITORY=$HOMEBREW_PREFIX
+
+    PATH=$WORKSPACE/local/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
+    MANPATH=$WORKSPACE/local/share/man:$HOMEBREW_PREFIX/share/man:$MANPATH
+    INFOPATH=$HOMEBREW_PREFIX/share/info:$INFOPATH
     HOMEBREW_CACHE=$WORKSPACE/.cache/Homebrew
+    HOMEBREW_LOGS=$HOMEBREW_CACHE/Logs
     HOMEBREW_TEMP=$TMPDIR
     HOMEBREW_MAKE_JOBS=6
 
-    export PATH MANPATH INFOPATH HOMEBREW_CACHE HOMEBREW_TEMP HOMEBREW_MAKE_JOBS
+    export HOMEBREW_PREFIX HOMEBREW_CELLAR HOMEBREW_REPOSITORY \
+           HOMEBREW_CACHE HOMEBREW_LOGS HOMEBREW_TEMP HOMEBREW_MAKE_JOBS
+    export PATH MANPATH INFOPATH
 
     # Set default permission
     umask 002
