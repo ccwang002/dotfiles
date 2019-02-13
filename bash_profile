@@ -3,7 +3,7 @@
 # All developments are under workspace
 readonly WORKSPACE=/diskmnt/Projects/Users/lwang
 # Root of the Linuxbrew
-readonly HOMEBREW_PREFIX=$WORKSPACE/.linuxbrew
+readonly HOMEBREW_PREFIX=$WORKSPACE/linuxbrew
 # Where the fish shell should be
 readonly FISH_BIN=$HOMEBREW_PREFIX/bin/fish
 
@@ -48,7 +48,7 @@ replace_bash_with_fish() {
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+    . ~/.bashrc
 fi
 
 if [ -z "$TMUX" ]; then
