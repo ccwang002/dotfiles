@@ -28,7 +28,6 @@ symlink_settings = '''\
 ~/.hgignore_global              hgignore_global
 ~/.inputrc                      inputrc
 ~/.jupyter/custom/custom.css    jupyter_themes/jt_oceans16.css
-~/.Rprofile                     Rprofile
 ~/.screenrc                     screenrc
 ~/.ssh/config                   ssh_config
 ~/.tmux.conf                    tmux.conf
