@@ -1,6 +1,6 @@
-## Default repo
+## Default CRAN repo to RStudio cloud mirror
 local({
     r <- getOption("repos")
-    r["CRAN"] <- "https://cran.cnr.berkeley.edu/"
+    r["CRAN"] <- "https://cloud.r-project.org/"
     options(repos=r)
 })
