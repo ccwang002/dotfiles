@@ -18,13 +18,7 @@ if status --is-login; and not set -q TMUX
             # Google Cloud SDK
             if test -d "$HOME/google-cloud-sdk"
                 source "$HOME/google-cloud-sdk/path.fish.inc"
-                # So far no completion for fish shell, use bass
-                # bass source "$HOME/google-cloud-sdk/completion.bash.inc"
             end
-
-            # conda http://conda.pydata.org/miniconda.html
-            # soft link ~/miniconda3/etc/fish/conf.d/conda.fish
-            # to ~/.config/fish/functions/
 
         case 'Linux*'
             # Check if it's in MGI Docker
@@ -43,10 +37,6 @@ if status --is-login; and not set -q TMUX
         case '*'
             echo "Unrecognized OS: "(uname -a)"!"
     end
-
-    # Python environment
-    # Disable Python venv prompt changing
-    # set -gx VIRTUAL_ENV_DISABLE_PROMPT "yes"
 
     set -gx EDITOR (which vim)
     set -gx PAGER (which less)
