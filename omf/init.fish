@@ -23,7 +23,9 @@ if status --is-login; and not set -q TMUX
         case 'Linux*'
             # Check if it's in MGI Docker
             if string match '*.gsc.wustl.edu' (hostname)
-                source $HOME/docker_clean_env.fish
+                set -x SHELL /usr/bin/fish
+                # Fix less coloring
+                set -x LESS "-iRM"
             end
 
             # Settings on Linux (mostly servers)
