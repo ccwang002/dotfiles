@@ -1,3 +1,5 @@
 function slack-me --wraps 'slack-cli' --description "Slack myself a job's ended"
-    slack-cli --team mgidinglab -d bobo "A job on "(hostname)" has ended (exit status $status)" $argv
+    # Capture the previous job status
+    set -l prev_status $status
+    slack-cli --team mgidinglab -d bobo "A job on "(hostname)" has ended (exit status $prev_status): $msg"
 end
