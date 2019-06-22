@@ -35,6 +35,13 @@ Host katmai katmai.wusm.wustl.edu
     IdentityFile ~/.ssh/id_wustl_rsa
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
 
+Host carbon
+    Hostname 10.23.76.154
+    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_wustl_rsa
+    UserKnownHostsFile ~/.ssh/dinglab_known_hosts
+
+
 # The servers only available thru katmai
 Host sitka kobuk kenai acadia congaree guadalupe tortugas
     User lwang
