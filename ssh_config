@@ -35,8 +35,8 @@ Host katmai katmai.wusm.wustl.edu
     IdentityFile ~/.ssh/id_wustl_rsa
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
 
-Host carbon
-    Hostname 10.23.76.154
+Host chauvet
+    Hostname 10.23.76.212
     IdentityFile ~/.ssh/id_rsa
     IdentityFile ~/.ssh/id_wustl_rsa
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
