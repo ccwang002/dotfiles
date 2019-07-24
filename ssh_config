@@ -37,6 +37,7 @@ Host katmai katmai.wusm.wustl.edu
 
 Host chauvet
     Hostname 10.23.76.212
+    User lwang
     IdentityFile ~/.ssh/id_rsa
     IdentityFile ~/.ssh/id_wustl_rsa
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
