@@ -57,10 +57,16 @@ Host ptmcosmos.wustl.edu ptmcosmos
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
 
 
+## RIS compute login nodes
+Host compute1-*.ris.wustl.edu
+    User liang-bo.wang
+    UserKnownHostsFile ~/.ssh/ris_known_hosts
+    IdentityFile ~/.ssh/id_rsa_compute
+
+
 ## General configuration for the MGI servers
 Host virtual-workstation* vw1 vw2 vw3 vw4 vw5 blade* *.gsc.wustl.edu
     User lwang
     UserKnownHostsFile ~/.ssh/mgi_known_hosts
-    IdentityFile ~/.ssh/id_rsa
     IdentityFile ~/.ssh/id_wustl_rsa
 
