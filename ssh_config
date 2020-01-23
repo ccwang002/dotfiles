@@ -21,7 +21,7 @@ Host shell.cec.wustl.edu shell
 
 
 ## Ding Lab servers
-Host denali denali.wusm.wustl.edu lab-cluster
+Host denali denali.wusm.wustl.edu
     Hostname 10.22.24.1
     User lwang
     IdentityFile ~/.ssh/id_rsa
@@ -32,6 +32,12 @@ Host katmai katmai.wusm.wustl.edu
     Hostname 10.22.24.2
     User lwang
     IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_wustl_rsa
+    UserKnownHostsFile ~/.ssh/dinglab_known_hosts
+
+Host glacier glacier.wusm.wustl.edu
+    Hostname 10.22.24.83
+    User lwang
     IdentityFile ~/.ssh/id_wustl_rsa
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
 
