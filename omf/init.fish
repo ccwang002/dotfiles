@@ -28,6 +28,13 @@ if status --is-login; and not set -q TMUX
                 set -x LESS "-iRM"
             end
 
+            # Check if it's in RIS Docker
+            # .ris.wustl.edu
+            if string match 'compute1-*.ris.wustl.edu' (hostname)
+                set -x SHELL /usr/bin/fish
+            end
+
+
             # Settings on Linux (mostly servers)
             # Rust environment by rustup.rs
             if set -q CARGO_HOME; and set -q RUSTUP_HOME
