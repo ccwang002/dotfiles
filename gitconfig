@@ -5,26 +5,24 @@
         --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %Cgreen(%cd) %C(cyan)<%<(12,mtrunc)%an>%Creset'
     st = status -sb
 
+[color]
+    ui = auto
+
+[core]
+    excludesfile = ~/.gitignore_global
+    quotepath = false
+    pager = delta --dark --theme='Monokai Extended'
+
+[diff]
+    compactionHeuristic = true
+
 [log]
     date = relative
+
+[push]
+    default = matching
 
 [user]
     name = Liang-Bo Wang
     email = liang-bo.wang@wustl.edu
 
-[core]
-    excludesfile = ~/.gitignore_global
-    quotepath = false
-
-[pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
-
-[push]
-    default = matching
-
-[diff]
-    compactionHeuristic = true
-[color]
-    ui = auto
