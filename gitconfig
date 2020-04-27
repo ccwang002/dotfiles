@@ -11,13 +11,18 @@
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
-    pager = delta --dark --theme='Monokai Extended'
+    # pager = delta --dark --theme='Monokai Extended'
 
 [diff]
     compactionHeuristic = true
 
 [log]
     date = relative
+
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
 
 [push]
     default = matching
