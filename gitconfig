@@ -31,3 +31,5 @@
     name = Liang-Bo Wang
     email = liang-bo.wang@wustl.edu
 
+[pull]
+	rebase = false
