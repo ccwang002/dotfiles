@@ -63,6 +63,12 @@ Host ptmcosmos.wustl.edu ptmcosmos
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
 
 
+Host ptmcosmos*.liang-bo.wang
+    User lbwang
+    IdentityFile ~/.ssh/id_wustl_gcp_ed25519
+    UserKnownHostsFile ~/.ssh/dinglab_known_hosts
+
+
 ## RIS compute login nodes
 Host compute1-*.ris.wustl.edu
     User liang-bo.wang
