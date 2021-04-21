@@ -11,7 +11,7 @@ function slack-me --description "Slack myself a job's ended"
         return 1
     end
 
-    curl \
+    /usr/bin/curl \
         -F token="$SLACK_BOT_TOKEN" \
         -F channel="$SLACK_BOT_CHANNEL" \
         -F text="A job on "(hostname)" has ended (exit $prev_status): $argv" \
