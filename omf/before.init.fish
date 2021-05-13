@@ -24,6 +24,7 @@ set -g theme_display_vagrant no
 set -g theme_display_vi no
 set -g theme_display_virtualenv no
 set -g theme_git_worktree_support no
+set -g theme_git_default_branches master main
 set -g theme_nerd_fonts no
 set -g theme_newline_cursor no
 set -g theme_powerline_fonts no
