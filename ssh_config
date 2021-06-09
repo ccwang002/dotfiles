@@ -59,7 +59,7 @@ Host sitka kobuk kenai acadia congaree guadalupe tortugas
 Host ptmcosmos.wustl.edu ptmcosmos
     Hostname ptmcosmos.wustl.edu
     User lbwang
-    IdentityFile ~/.ssh/id_wustl_rsa
+    IdentityFile ~/.ssh/id_wustl_gcp_ed25519
     UserKnownHostsFile ~/.ssh/dinglab_known_hosts
 
 
