@@ -1,9 +1,10 @@
 [alias]
     co = checkout
-    cm = commit
     lg = log --color --graph --all --abbrev-commit \
         --pretty=format:'%C(yellow)%h%C(auto)%d%Creset %s %Cgreen(%cd) %C(cyan)<%<(12,mtrunc)%an>%Creset'
     st = status -sb
+    difff = -c pager.diff=delta diff
+    showw = -c pager.show=delta show
 
 [color]
     ui = auto
@@ -11,7 +12,6 @@
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
-    # pager = delta --dark --theme='Monokai Extended'
 
 [diff]
     compactionHeuristic = true
@@ -20,9 +20,14 @@
     date = relative
 
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    # diff = delta
+    # log = delta
+    # reflog = delta
+    # show = delta
+
+[delta]
+    syntax-theme = Monokai Extended
+    navigate = true
 
 [push]
     default = matching
@@ -32,4 +37,4 @@
     email = liang-bo.wang@wustl.edu
 
 [pull]
-	rebase = false
+    rebase = false
