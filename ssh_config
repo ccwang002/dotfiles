@@ -1,5 +1,4 @@
 StrictHostKeyChecking ask
-UseRoaming no
 SendEnv LANG LC_*
 
 
