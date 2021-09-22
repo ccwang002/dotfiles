@@ -9,7 +9,7 @@
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_avoid_ambiquous_glyphs no
 set -g theme_color_scheme "dark"
-set -g theme_date_format "+%Y-%m-%d %H:%M"
+set -g theme_date_format "+%b %d %H:%M"
 set -g theme_display_cmd_duration yes
 set -g theme_display_date yes
 set -g theme_display_docker_machine no
