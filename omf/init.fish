@@ -5,21 +5,6 @@ if status --is-login; and not set -q TMUX
 
     switch (uname)
         case 'Darwin*'
-            # Settings on MacOS
-            # Update PATH for homebrew
-            set -x PATH /usr/local/sbin /usr/local/bin $PATH
-
-            test -d "$HOME/.cabal/bin"; and set -x PATH $HOME/.cabal/bin $PATH
-
-            # For rustup.rs
-            # Ref: https://www.rustup.rs/
-            test -d "$HOME/.cargo/bin"; and set -x PATH $HOME/.cargo/bin $PATH
-
-            # Google Cloud SDK
-            if test -d "$HOME/google-cloud-sdk"
-                source "$HOME/google-cloud-sdk/path.fish.inc"
-            end
-
         case 'Linux*'
             # Check if it's in MGI Docker
             if string match '*.gsc.wustl.edu' (hostname)

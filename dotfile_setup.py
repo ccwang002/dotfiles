@@ -19,17 +19,13 @@ symlink_settings = '''\
 ~/.config/mpv/                  mpv/
 ~/.config/omf/                  omf/
 ~/.config/git/gitk              gitk_config
-~/.ctags                        ctags
 ~/.editrc                       editrc
 ~/.editorconfig                 editorconfig
 ~/.gitconfig                    gitconfig
 ~/.gitignore_global             gitignore_global
-~/.hgrc                         hgrc
-~/.hgignore_global              hgignore_global
 ~/.inputrc                      inputrc
 ~/.jupyter/custom/custom.css    jupyter_themes/jt_oceans16.css
 ~/.Rprofile                     Rprofile
-~/.screenrc                     screenrc
 ~/.ssh/config                   ssh_config
 ~/.tmux.conf                    tmux.conf
 '''
