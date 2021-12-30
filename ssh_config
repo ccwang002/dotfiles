@@ -76,7 +76,7 @@ Host *.liang-bo.wang
 Host compute1-*.ris.wustl.edu
     User liang-bo.wang
     UserKnownHostsFile ~/.ssh/ris_known_hosts
-    IdentityFile ~/.ssh/id_rsa_compute
+    IdentityFile ~/.ssh/id_wustl_rsa
 
 
 ## General configuration for the MGI servers
