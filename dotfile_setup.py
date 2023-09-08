@@ -19,6 +19,7 @@ symlink_settings = '''\
 ~/.config/mpv/                  mpv/
 ~/.config/omf/                  omf/
 ~/.config/git/gitk              gitk_config
+~/.config/lsd/config.yaml       lsd_config.yaml
 ~/.editrc                       editrc
 ~/.editorconfig                 editorconfig
 ~/.gitconfig                    gitconfig
